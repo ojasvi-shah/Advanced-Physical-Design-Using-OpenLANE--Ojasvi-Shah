@@ -44,12 +44,14 @@ Two schematics encompassing all of the above components can be seen below:
 
 ### Introduction to RISC V
 RISC-V Instruction Set Architechture, commonly called RISC V ISA, is the language of the computer. When a C program is to be run on a piece of hardware, it is first compiled in an assembly language program like RISC V. It is then converted to machine language i.e. binary and subsequently implemented in the form of a hardware description language such as picorv32 cpu core. A schematic is shown below, representing the same: 
+
 {IMAGE CREDITS - VSDIAT ; shared as part of lecture}
 
 ![C program to running on hardware](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/0c10080e-99ac-42f6-8ea9-9f5b5a139c7b)
 
 
 ### From Software Applications to Hardware
+
 
 ## SoC Design and OpenLANE
 
