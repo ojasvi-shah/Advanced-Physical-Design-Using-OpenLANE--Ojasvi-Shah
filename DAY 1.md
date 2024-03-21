@@ -51,6 +51,13 @@ RISC-V Instruction Set Architechture, commonly called RISC V ISA, is the languag
 
 
 ### From Software Applications to Hardware
+Application Software, or apps. They run on hardware such as laptops, mobile phones, tablets etc that are powered by chips. However, apps are coded in complex application programs that require conversion into binary or machine language for running. This is done through system software, which majorly consists of 
+
+* Operating systems - Operating Systems (OSs) perform a variety of functions such as I.O. operation, memory allocation and low level system function. They produce functions in languages such as C, C++, VB and Java, which are sent to the compiler.
+* Compilers - Compilers produce simple instructions (the format of which depends on the hardware) in the form of .exe documents, which are to the assemblers. These instructions are abstract interfaces between complex coding languages like C/C++ and hardware, and hence are called ISAs. They are known as the architechture of the computer.
+* Assemblers - Assemblers convert the instructions from the compilers into binary, and the function is implemented.
+
+![code to hardware](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/5e3fb422-7ca4-4657-b805-0d314d0deec7)
 
 
 ## SoC Design and OpenLANE
