@@ -125,6 +125,37 @@ OpenLANE is an open-source digital ASIC jointly developed by efabless and Google
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/89bc0308-1952-442b-b446-a853f012eb54)
 
 ### Introduction to OpenLANE detailed ASIC Design Flow
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/3f05412f-4afe-4abd-9d0f-2587877af2d9)
+
+- Synthesis Exploration - it generates a delay vs area report
+  
+  ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/4708be8d-0ab3-4d56-94b7-ddb1b89e0fea)
+
+- Design Exploration - sweeps design configuration and subsequently find best configuration for any given design. It produces a report as shown:
+
+  ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/0f3818e5-3ab5-4a5e-b7ac-2eb56bab1d30)
+
+- OpenLANE Regression Testing
+
+  ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/e08e166f-bb34-488f-8bfb-a69e8ef1634d)
+
+- Design for Test (also k/a DFT)
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/428bec23-7853-48f5-b64c-f8b3dae21c63)
+
+- Physical verification (DRC & LVS) - Magic is used for DRC and Magic and Netgen for LVS.
+
+- Logic Equivalence Check (LEC) - checks that the physical implementation and the netlist have the same logic. It is performed each time netlist is modified and checks that changing netlist did not change function.
+
+- Dealing with Antenna Rules violations
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/9a1efcf8-2a59-4037-a5a4-c7e67ba0bed2)
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/3341e402-c8eb-4d8e-a602-ee5232fb0231)
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/287c01c9-a8bf-47af-8ff7-21094a704407)
+
+- Timing Analysis (STA) - Here, the input also contains a synthesized netlist along with other data.
 
 ## Get Familiar to Opensource EDA tools
 
