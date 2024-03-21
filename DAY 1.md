@@ -57,12 +57,32 @@ Application Software, or apps. They run on hardware such as laptops, mobile phon
 * Compilers - Compilers produce simple instructions (the format of which depends on the hardware) in the form of .exe documents, which are to the assemblers. These instructions are abstract interfaces between complex coding languages like C/C++ and hardware, and hence are called ISAs. They are known as the architechture of the computer.
 * Assemblers - Assemblers convert the instructions from the compilers into binary, and the function is implemented.
 
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
+
 ![code to hardware](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/5e3fb422-7ca4-4657-b805-0d314d0deec7)
 
 
 ## SoC Design and OpenLANE
 
 ### Introduction to Components of Opensource Digital ASIC Design
+ASIC requires mainly three components for design
+* RTL IPs - they are building blocks written in a hardware description language. These blocks describe the functioning of the circuit at a basic level and are pre designed and verified.
+* EDA Tools - EDA, which expands to Electronic Design Automation tools are used for design, simulation and verification and the analyzing of circuit designs. Common tools are OpenSTA, OpenRoad etc.
+* PDK data - Process Design Kit data is a collection of files used to model the fabrication process for EDA tools. It is usually provided by a foundry and include Process Design Rules, Device Models, Digital Standard Cell Libraries and IO libraries.
+
+However, until June of 2020, there was no OPENSOURCE available PDK data, making it impossible to do ASIC design on opensource platforms. Nonetheless, this changed when Google and Skywater released PDK data on 130 nm chips.  There is a unfortunate common misconception that 130 nm is not up to the industrial mark, with chips reaching Armstrong sizes in today's date. This is debunked due to the following two reasons -:
+- several applications do not require such advanced nodes, and 130nm chips provide a good amount of power for those cases
+- fabrication costs are also much lesser for 130nm chips
+
+130 nm chips are also not slow, as verified by intel and OSU-:
+
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
+
+![130nmslow](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/ed434895-429d-4b8c-8cb9-5175c4f96165)
+
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/5982d929-56f7-4bf3-b628-2902668be1db) 
 ### Simplified RTL to GDS flow
 ### Introduction to OpenLANE and Strive Chipsets
 ### Introduction to OpenLANE detailed ASIC Design Flow
