@@ -84,7 +84,46 @@ However, until June of 2020, there was no OPENSOURCE available PDK data, making 
 
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/5982d929-56f7-4bf3-b628-2902668be1db) 
 ### Simplified RTL to GDS flow
+The RTL to GDSII  ( Register Transfer Level to Graphic Design System II) design process takes many steps, that are -:
+
+- Synthesis - it converts hardware description languages such as VERILOG into gate-level representations part of a standard cell library. The cells part of this library have a regular layout. Each of these have different views/models such as Electrical, HDL, Spice etc.
+
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
+![synthesis](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/119683f4-360c-4164-8944-88b9421de9bb)
+
+- Floor Planning involves optimizing chip performance, area utilization, and connectivity through spatial arrangements (i.e. the layout and placement of various components)The three main purposes of floor planning are firstly, minimizing wire lengths, secondly, reducing signal delays, thirdly, optimizing power distribution, and fourthly, ensuring efficient chip utilization. Power Planning aims to ensure stable and reliable power delivery to all components by effective distribution and design of power supplies and power distribution networks (PDN). The main purposes of this are minimizing voltage drop and noise, reducing power distribution network (PDN) resistances and capacitances, and ensuring uniform power distribution throughout. Usually the chip is powered through VDD pads which are connected to various components through parallel rectangular strips causing lesser resistance.
+
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/86b639fe-6ad1-470b-8ea0-07919dec535a)
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/df18d8bf-407d-4cae-a646-d693c49e3364)
+
+- Placement - it is the process of determing where a component will be placed on the chip. The components can include standard cells, macros, and I/O pads. The cells are usually placed on floorplan rows, and are aligned with the sites. There are majorly two steps - global and detailed.
+
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/663b03f0-14af-4092-9c41-3b172d41c982)
+
+- Clock Tree Synthesis - This step is done before routing, because the clock needs to be routed by delivering the clock to all sequential elements.
+
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/21013c30-c388-42f5-b0b4-67212c456aab)
+
+- Routing - The determination of the interconnections of the components throught the various metal layers, whose thickness, pitch etc is detailed by the PDK. The SKY130 has 6 layers.
+
+- Sign Off - this majorly has verification through three processes:
+  
+  + Design Rule Check (DRC) - this makes sure the design complies with manufacturing guidelines and is compatible for fabrication. It aims to detect and correct layout errors so that fabrication defects do not occur.
+
+  + Layout vs. Schematic (LVS) - here the layout is contrasted against the schematic to ensure consistency. LVS tools extract netlists and compare them for differences, after which the design proceeds to physical design flow
+
+  + Static Timing Analysis (STA) - it evaluates timing behaviour of a digital circuit to ensure design meets setup and hold time constraints, maximum clock frequency, and other timing requirements
+
 ### Introduction to OpenLANE and Strive Chipsets
+OpenLANE is an open-source digital ASIC jointly developed by efabless and Google, designed to automate the entire design process flow based on several components including OpenROAD, SPEF-Extractor, KLayout and a number of custom scripts for design exploration and optimization. It aims to create a clean GDSII (i.e. no LVS violations, no DRC violations, and no timing violations) with no human intervention.  striVe is family of SoCs created by Efabless.
+
+{IMAGE CREDITS:VSDIAT ; shared as part of lecture}
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/8d894bc9-bc80-45da-a53c-bb476461fd04)
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/89bc0308-1952-442b-b446-a853f012eb54)
+
 ### Introduction to OpenLANE detailed ASIC Design Flow
 
 ## Get Familiar to Opensource EDA tools
