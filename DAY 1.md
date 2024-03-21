@@ -1,4 +1,4 @@
-![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/9b049e46-f7ad-4151-aa8b-cef9dcc42a25)# SKY130 Day 1: Inception of OpenSource EDA, OpenLANE and SKY130 PDK
+# SKY130 Day 1: Inception of OpenSource EDA, OpenLANE and SKY130 PDK
 
 ## How to Talk to Computers
 
