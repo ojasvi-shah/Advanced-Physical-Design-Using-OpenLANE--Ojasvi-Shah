@@ -95,6 +95,8 @@ The RTL to GDSII  ( Register Transfer Level to Graphic Design System II) design 
 
 {IMAGE CREDITS - VSDIAT ; shared as part of lecture}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/86b639fe-6ad1-470b-8ea0-07919dec535a)
+
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/df18d8bf-407d-4cae-a646-d693c49e3364)
 
 - Placement - it is the process of determing where a component will be placed on the chip. The components can include standard cells, macros, and I/O pads. The cells are usually placed on floorplan rows, and are aligned with the sites. There are majorly two steps - global and detailed.
@@ -122,25 +124,33 @@ OpenLANE is an open-source digital ASIC jointly developed by efabless and Google
 
 {IMAGE CREDITS:VSDIAT ; shared as part of lecture}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/8d894bc9-bc80-45da-a53c-bb476461fd04)
+
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/89bc0308-1952-442b-b446-a853f012eb54)
 
 ### Introduction to OpenLANE detailed ASIC Design Flow
+
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/3f05412f-4afe-4abd-9d0f-2587877af2d9)
 
 - Synthesis Exploration - it generates a delay vs area report
-  
+
+  {IMAGE CREDITS - VSDIAT ; shared as part of lecture}
   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/4708be8d-0ab3-4d56-94b7-ddb1b89e0fea)
 
 - Design Exploration - sweeps design configuration and subsequently find best configuration for any given design. It produces a report as shown:
 
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/0f3818e5-3ab5-4a5e-b7ac-2eb56bab1d30)
 
 - OpenLANE Regression Testing
 
-  ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/e08e166f-bb34-488f-8bfb-a69e8ef1634d)
+ {IMAGE CREDITS - VSDIAT ; shared as part of lecture}
+ ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/e08e166f-bb34-488f-8bfb-a69e8ef1634d)
 
 - Design for Test (also k/a DFT)
 
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/428bec23-7853-48f5-b64c-f8b3dae21c63)
 
 - Physical verification (DRC & LVS) - Magic is used for DRC and Magic and Netgen for LVS.
@@ -149,10 +159,13 @@ OpenLANE is an open-source digital ASIC jointly developed by efabless and Google
 
 - Dealing with Antenna Rules violations
 
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/9a1efcf8-2a59-4037-a5a4-c7e67ba0bed2)
 
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/3341e402-c8eb-4d8e-a602-ee5232fb0231)
 
+{IMAGE CREDITS - VSDIAT ; shared as part of lecture}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/287c01c9-a8bf-47af-8ff7-21094a704407)
 
 - Timing Analysis (STA) - Here, the input also contains a synthesized netlist along with other data.
@@ -160,6 +173,55 @@ OpenLANE is an open-source digital ASIC jointly developed by efabless and Google
 ## Get Familiar to Opensource EDA tools
 
 ### OpenLANE Directory Structure in Detail
+Openlane is more of a flow than a tool comprising of the various opensource EDA tools such as Yosys, OpenSTA. The aim of openlane is to automate the entire RTL to GSII flow and make it clean and opensource. It is very similar to commercial EDA tools.
+
+Exploring OpenSource directory through Linux terminal steps:-
+
+1) Open the virtual machine (made as instructed through the document Kunal sir shared) and then open terminal on it.
+
+{IMAGE CREDITS: AUTHOR ; screenshot taken from device}  
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/63dd9800-4e1c-424f-b2e9-44dca5126a88)
+
+2) Type _cd Desktop_ and then _cd work/tools_ to change directory to Desktop/work/tools, as this is where all openlane files are stored.
+
+{IMAGE CREDITS: AUTHOR ; screenshot taken from device}  
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/1a317af8-a4eb-41fe-b308-45307fb47a49)
+
+
+3) After changing directory, type _ls -ltr_ to list the contents of the directory.
+
+> Side note: **ltr** represents how the list of contents should be ordered . To find other ways, type _ls --help_.
+
+{IMAGE CREDITS: AUTHOR ; screenshot taken from device}  
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/6a6f1f08-cb16-4e44-937a-9a0a0eaf288a)
+
+4) In this workshop, we are going to use **openlane_working_dir**, and hence we will change directory to it by typing _cd openlane_working_dir_. Afterwards, we list the contents using the same _ls -ltr_. In this workshop, we are going to use **pdks** and **openlane** directories and hence we will explore both in sequence.
+
+5) Starting with **pdks**, type _cd pdks_ and then _ls -ltr_ to view the contents in **pdks**. Here, we will explore **sky130A**, so similarly change directory and then view contents. One will observe two directories - _libs.tech_ and _libs.rif_
+
+{IMAGE CREDITS: AUTHOR ; screenshot taken from device}  
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/3679332d-0999-406a-a40c-97e1829053dd)
+
+6) _libs.tech_ contains all tool specific files. As seen in the picture - tools like Qflow, netgen, magic etc have directories. Opening the **magic** directory in **libs.tech**, we can see the following files:
+
+{IMAGE CREDITS: AUTHOR ; screenshot taken from device}  
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/b41bee95-a59e-4cc8-8094-85c53c2ce138)
+
+7) _libs.ref_ contains all the technology/foundry related processes. Upon further exploration of **sky130_fd_sc_hd**, we see the following
+
+> **_cd .._** reverses the directory one step behind to the parent directory.cd 
+
+{IMAGE CREDITS: AUTHOR ; screenshot taken from device}  
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/963b1a8e-6b7d-4078-845a-f61abe497e5e)
+
+{IMAGE CREDITS: AUTHOR ; screenshot taken from device}  
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/f01b000a-5b3e-49d3-a6f2-28e116f8fa02)
+
+8) Next, we will open **openlane**
+
+{IMAGE CREDITS: AUTHOR ; screenshot taken from device}  
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/75bc59d6-41af-4854-8fd1-9bd58dd8616d)c
+
 ### Design Preparation Step
 ### Review Files After Design Prep and Run Synthesis
 ### Steps to Charecterise Synthesis Results
