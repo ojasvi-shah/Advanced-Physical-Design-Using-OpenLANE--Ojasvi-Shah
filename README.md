@@ -20,4 +20,30 @@ Contents -:
         + [Design Preparation Step](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%201.md#design-preparation-step)
         + [Review Files After Design Prep and Run Synthesis](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%201.md#review-files-after-design-prep-and-run-synthesis)
         + [Steps to Characterise Synthesis Results](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%201.md#steps-to-charecterise-synthesis-results)
-* SKY130 Day 2: 
+* SKY130 Day 2: Good vs Bad Floorplan and Introduction to Library Cells
+    - Chip Floor Planning Considerations
+        + Utilisation Factor and Aspect Ratio
+        + Concept of Pre-Placed Cells
+        + De-Coupling Capacitors
+        + Power Planning
+        + Pin Placement and Logical Cell Placement Blockage
+        + Steps to Run Floorplan Using OpenLANE
+        + Review Floorplan Files and Steps to Review Floorplan
+        + Review Floorplan Layout in Magic
+    
+   - Library Binding and Placement
+        + Netlist Binding and Initial Place Design
+        + Optimise Placement Using Estimated Wire-Length and Capacitance
+        + Final Placement Optimization
+        + Need for Libraries and Characterisation
+        + Congestion Aware Placement Using RePLACE
+    
+    - Cell Design and Characterisation Flows
+        + Inputs for Cell Design Flow
+        + Circuit Design Step
+        + Layout Design Step
+        + Typical Characterisation Flow
+     
+     - General Timing Characterisation Parameters
+        + Timing Threshhold Definitions
+        + Propogation Delay and Transition Time
