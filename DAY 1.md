@@ -234,7 +234,7 @@ OpenLane has various designs and we are most interested in **picorv32a** Inside 
 {IMAGE CREDITS: AUTHOR ; screenshot taken from device}  
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/455bdb9f-366d-431b-b3c9-e47b39ea9091)
 
-To setup the design of OpenLANE, we first need to prepare the design through _prep -design picorv32a_, which gives the following result.
+To setup the design of OpenLANE, we first need to prepare the design ensures that the final product functions correctly and reliably through _prep -design picorv32a_, which gives the following result.
 
 {IMAGE CREDITS: AUTHOR ; screenshot taken from device}  
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/6fe84e83-52d9-43fa-a135-2fa39e90ffef)
@@ -263,7 +263,7 @@ Opening the **merged.lef** file through the _less_ command after design prep wil
 {IMAGE CREDITS: AUTHOR ; screenshot taken from device}  
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/fa5c1059-c09e-4bf2-ade1-7cd0adaa1bac)
 
-After this, type the command _run_synthesis_ to run synthesis to run yosys RTL synthesis, ABC scripts (for technology mapping) and openSTA. This process will take about 5-6 minutes, depending on system speed.
+After this, type the command _run_synthesis_ to run synthesis which converts an abstract netlist into a program to run yosys RTL synthesis, ABC scripts (for technology mapping) and openSTA. This process will take about 5-6 minutes, depending on system speed.
 
 ### Steps to Charecterise Synthesis Results
 
