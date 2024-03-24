@@ -64,7 +64,7 @@ The _README.md_ contains all configuration variables, which are segregated based
 
 2. All _configurations/switches_ accepted by the current run are from **openlane/designs/[design - date]/config.tcl**
 
-                                  ----------------
+***
 
 There is a order of priority -:
 
@@ -92,15 +92,51 @@ There is a order of priority -:
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/141544b1-4568-4c34-b348-c3b9138ffaa1)
 
 > Standard cells are not placed but can be viewed at the bottom left corner of the layout
+> 
 >![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/5dcd79af-393d-4d18-8986-0fe000c72db7)
 
     
 ## Library Binding and Placement
 ### Netlist Binding and Initial Place Design
+
++ The first step is to bind the netlist with physical cells i.e. cells with real dimension. The netlist contains various gates, that while in the schematic are of a certain shape as depicted, are usually square/rectangular in shape in production. These gates are given a specific shape, and in the end look very different from the netlist.
+
+These blocks are sourced from a "_shelf_", known as a **library**. The library has cells with various shapes, dimensions and also contains information about the delay information. The library contains various sizes of cells with the same functionality too - since bigger cells have lesser resistance
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/73dae3fe-cf37-41dc-8ef5-20d2d00ad475)
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/a2e71ed5-14fc-4ff9-b1c1-47d92af242b5)
+
++ The second step is **PLACEMENT**, which is done based on connectivity. As can be seen, flip flop 1 is close to the  _Din1_ pin and flip flop 2 is close to _Dout1_ pin. Combinational cells are placed in close proximity to FF1 and FF2 as to reduce delay.
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/1b63d280-f78d-4c4d-aa86-dcf609429bd7)
+
+
 ### Optimise Placement Using Estimated Wire-Length and Capacitance
+
+Here, we will estimate wirelength needed to connect the components together. If the wirelength is too long, we would need to install repeaters, as the signal may change over a long distance. Repeaters essentially recondition the same signal to it's prior strength.
+
 ### Final Placement Optimization
-### Need for Libraries and Characterisation
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/0941c315-195a-43f7-89aa-70e5e3215443)
+
 ### Congestion Aware Placement Using RePLACE
+
+The command to run placement of OpenLANE - _run_placement_ is a wrapper which does three functions
+- Global Placement (by using the RePlace tool) - there is no legalisation and HPWL reduction model is used
+- Optimization (by Resier tool)
+- Detailed Placement (by OpenDP tool) - legalisation occurs - where standard cells are placed in rows and there will be no overlap of the cells.
+
+Placement aims to **converge the overflow value**. 
+
+> NOTE: If placement will be sucessful and the designs will converge, the overflow value will progressively reduce during the placement.
+
+After running the placement, output is generated in this folder **_openlane/designs/picorv32a/runs/[design - date]/results/placement/picorv32a.placement.def_**
+
+Then, we can type the command : **_magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &_** to view it in Magic: 
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/6f53eb50-d3f1-4d6c-91c2-7e35f35d423d)
+
     
 ## Cell Design and Characterisation Flows
 ### Inputs for Cell Design Flow
