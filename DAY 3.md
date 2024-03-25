@@ -68,21 +68,76 @@ We have been provided with a github repository wherein inverter files lie. It is
 3. Subsequently, copy the tech file to the _vsdstdcelldesign_ directory (created through above step) by this command _cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign/_
 4. Then, open the custom inverter layout in MAGIC through this command: _magic -T sky130A.tech sky130_inv.mag &_cp__
 
-
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/307eb43f-4fe3-4d28-bca0-4e495d171489)
 
+## Inception of Layout and CMOS Fabrication Process
 
-## Inception of Layout Â CMOS Fabrication Process
+The 16 MASK CMOS Fabrication process is as follows:
+
 ### Create Active Regions
+
+1. The first step is to select a substrate - which is where the entirety of your design is fabricated. The most common substrate is a P doped Silicon Substrate. A substrate is ideally lesser doped than it's wells.
+
+2. The next step is creating an active region for transistors. It is to be noted that it is necessary to have isolation between the pockets, which can be done through
+   - Growing 40nm of Silicon Dioxide
+   - Depositing 80nm of Silicon Nitride.
+   - Depositing a layer of photoresist
+   - Deposit mask-1 layer on top of photoresist. It covers the photoresist layer that must not be etched away (protects the two transistor active regions)
+   - Applying UV light to remove the layers on the unmasked regions
+   - Removing mask-1 and photoresist layers
+   - Placing the chip in the furnace to grow the oxide in other areas
+   - Removing the Si3N4 layer using hot phosphoric acid to have only p-substrate and SiO2 left
+
 ### Formation of N and P well
+
+3. P well and N well formation
+    + Deposition of photo resist layer and define the areas to protect by deposition of mask-2 and 3. Mask 2 protects the N-Well (PMOS side) while P-Well (NMOS side) is being fabricated and Mask 3 protects P-Well while N-Well is being formed
+    + Application of UV Light to remove the exposed photoresist
+    + Placing of chip in furnace to diffuse the boron and phosphorous to form wells. This process is called **Twintub** process.
+
+> Boron [B] is used to form P-Well and Phosporus [P] is used to form N-well
+
 ### Formation of Gate Terminal
+
+Gate Terminal is where Threshhold Voltage is controled - as seen below:
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/2803bfef-5a63-4e51-a91f-ca5f3bd2f3c5)
+
+4. Formation of Gate
+     + Deposit photo resist layer to define the areas to be protected, and then subsequently deposit mask-4. Then, UV light is applied, and the exposed area of photoresist is removed
+     + Then, implantation of  low energy boron at the surface of p-well using mask-4 to control the threshold occurs
+     + Similarly, implantation of phosphorous/arsenic for n-well using mask-5 occurs
+     + Fixing the oxide which is damaged by implantation steps by removing extra SiO2 using the hydroflouric acid and re-grow high quality SiO2 on p-substrate to contol the oxide thickness occurs next
+     + Addition of polysilicon film subsequently occurs
+     + Then, mask-6 is added and etching using photolithography occurs
+     + Then, mask 6 is etched off to form the gate terminal
+
 ### Lightly Doped Drain [LDD] Formation
-### Source Â Drain Formation
+
+5. LDD Formation - the reason LDDs are created is to prevent the hot electron which can eventually cause Si - Si bonds break or create voltage that passes the 3.2eV barrier leading to issues with doped regions. The second major need is to prevent another effect, known as the short channel effect which can cause gate malfunctioning due to the drain field penetrating the channel.
+     + Mask 7  and 8 are created for NMOS (lightly doped N-type) and PMOS (lightly doped P-type) respectively.
+     + Heavily doped impurity (N+ for NMOS and P+ for PMOS) are added for the actual source and drain but the lightly doped impurity which are also added help maintain spacing between the source and drain and prevent hot electron effect and short channel effect.
+     + To protect the lightly doped regions, we also add SiO2 and create spacers using _plasma anisotropic_ etching
+
+### Source and Drain Formation
+
+6. Source and Drain Formation
+     + Thin screen oxide is added to avoid channeling during. Channeling is when implantations dig too deep into substrate which is very problematic
+     + We create Mask-9 is for N+ implantation and Mask-10 for P+ implantation
+     + The side wall spacers maintain the N-/P- while implanting the N+/P+
+     + High temperature annealing is done as well
+
 ### Local Interconnect Formation
+
+7. Steps to Form Connects and Interconnects [LOCAL] - these are very important as they help in controlling the electrical charecteristics. These are also the only things accessible to the end user.
+     + The thin screen oxide is removed for opening up the source, drain and gate for contact building. We use Titanium as it has less resistance.
+     + TiSi2 is used for local interconnects
+     + Mask 11 is formed and TiN is etched off by RCA cleaning to create the first level contact
 
 ### Higher Level Metal Formation
 ### Lab Introduction to SKY130 Basic Layers Layout and LEF using Inverter
 ### Lab Steps to Create STD Cell Layout and Extract SPICE Netlist
+
 ## SKY130 Tech File Labs
 ### Lab Steps To Create Final SPICE deak using SKY130 tech
 ### Lab Steps to Characterise Inverter using SKY130 Model Files
