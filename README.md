@@ -37,7 +37,7 @@ Contents -:
         + [Need for Libraries and Characterisation](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%202.md#need-for-libraries-and-characterisation)
         + [Congestion Aware Placement Using RePLACE](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%202.md#congestion-aware-placement-using-replace)
     - [Cell Design and Characterisation Flows](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%202.md#cell-design-and-characterisation-flows)
-        + [Inputs for Cell Design Flow]([https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%202.md#inputs-for-cell-design-flow](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%202.md#inputs-for-cell-design-flow-and-circuit-and-layout-design-step))
+        + [Inputs for Cell Design Flow](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%202.md#inputs-for-cell-design-flow-and-circuit-and-layout-design-step))
         + [Circuit Design Step](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%202.md#inputs-for-cell-design-flow-and-circuit-and-layout-design-step)
         + [Layout Design Step](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%202.md#inputs-for-cell-design-flow-and-circuit-and-layout-design-step)
         + [Typical Characterisation Flow](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%202.md#typical-characterisation-flow)
