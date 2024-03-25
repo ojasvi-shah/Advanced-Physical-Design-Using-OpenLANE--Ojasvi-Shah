@@ -44,31 +44,31 @@ Contents -:
      - [General Timing Characterisation Parameters](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%202.md#general-timing-characterisation-parameters)
         + [Timing Threshhold Definitions](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%202.md#timing-threshhold-definitions)
         + [Propogation Delay and Transition Time](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%202.md#propogation-delay-and-transition-time)     
-* SKY130 DAY 3: Design Library Cell Using Magic Layout and NGSPICE characterisation
-     - Labs for CMOS Inverter NGSPICE Simulations
-        + IO Placer Revision
-        + SPICE Deck Creation For CMOS Inverter
-        + SPICE Simulation Lab for CMOS Inverter
-        + Switching Threshhold Vm
-        + Static and Dynamic Simulation of CMOS Inverter
-        + Lab Steps to GitClone VSDSTD Cell Design
-     - Inception of Layout Â CMOS Fabrication Process
-        + Create Active Regions
-        + Formation of N and P well
-        + Formation of Gate Terminal
-        + Lightly Doped Drain [LDD] Formation
-        + Source Â Drain Formation
-        + Local Interconnect Formation
-        + Higher Level Metal Formation
-        + Lab Introduction to SKY130 Basic Layers Layout and LEF using Inverter
-        + Lab Steps to Create STD Cell Layout and Extract SPICE Netlist
-     - SKY130 Tech File Labs
-        + Lab Steps To Create Final SPICE deak using SKY130 tech
-        + Lab Steps to Characterise Inverter using SKY130 Model Files
-        + Lab Introduction to SKY130 PDKs And Steps to Download Labs
-        + Lab Introduction to Magic Tool Options and DRC Rules
-        + Lab Introduction to Magic and Steps to Load SKY130 Tech Rules
-        + Lab Excercise to Fix **poly.9** error in SKY130 Tech-File
-        + Lab Excercise to Implement Poly-Resistor Spacing to Diff and Tap
-        + Lab Challenge Excercise To Describe DRC Error as Geometrical Construct
-        + Lab Challenge to Find Missing or Incorrect Rules and Fix Them
+* [SKY130 DAY 3: Design Library Cell Using Magic Layout and NGSPICE characterisation](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#sky130-day-3-design-library-cell-using-magic-layout-and-ngspice-characterisation)
+     - [Labs for CMOS Inverter NGSPICE Simulations](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#labs-for-cmos-inverter-ngspice-simulations)
+        + [IO Placer Revision](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#io-placer-revision)
+        + [SPICE Deck Creation For CMOS Inverter](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#spice-deck-creation-for-cmos-inverter)
+        + [SPICE Simulation Lab for CMOS Inverter](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#spice-simulation-lab-for-cmos-inverter)
+        + [Switching Threshhold Vm](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#switching-threshhold-vm)
+        + [Static and Dynamic Simulation of CMOS Inverter](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#static-and-dynamic-simulation-of-cmos-inverter)
+        + [Lab Steps to GitClone VSDSTD Cell Design](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-steps-to-gitclone-vsdstd-cell-design)
+     - [Inception of Layout Â CMOS Fabrication Process](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#inception-of-layout-%C3%A2-cmos-fabrication-process)
+        + [Create Active Regions](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#create-active-regions)
+        + [Formation of N and P well](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#formation-of-n-and-p-well)
+        + [Formation of Gate Terminal](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#formation-of-gate-terminal)
+        + [Lightly Doped Drain [LDD] Formation](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lightly-doped-drain-ldd-formation)
+        + [Source Â Drain Formation](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#source-%C3%A2-drain-formation)
+        + [Local Interconnect Formation](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#local-interconnect-formation)
+        + [Higher Level Metal Formation](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#higher-level-metal-formation)
+        + [Lab Introduction to SKY130 Basic Layers Layout and LEF using Inverter](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-introduction-to-sky130-basic-layers-layout-and-lef-using-inverter)
+        + [Lab Steps to Create STD Cell Layout and Extract SPICE Netlist](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-steps-to-create-std-cell-layout-and-extract-spice-netlist)
+     - [SKY130 Tech File Labs](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#sky130-tech-file-labs)
+        + [Lab Steps To Create Final SPICE deck using SKY130 tech](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-steps-to-create-final-spice-deak-using-sky130-tech)
+        + [Lab Steps to Characterise Inverter using SKY130 Model Files](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-steps-to-characterise-inverter-using-sky130-model-files)
+        + [Lab Introduction to SKY130 PDKs And Steps to Download Labs](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-introduction-to-sky130-pdks-and-steps-to-download-labs)
+        + [Lab Introduction to Magic Tool Options and DRC Rules](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-introduction-to-magic-tool-options-and-drc-rules)
+        + [Lab Introduction to Magic and Steps to Load SKY130 Tech Rules](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-introduction-to-magic-and-steps-to-load-sky130-tech-rules)
+        + [Lab Excercise to Fix **poly.9** error in SKY130 Tech-File](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-excercise-to-fix-poly9-error-in-sky130-tech-file)
+        + [Lab Excercise to Implement Poly-Resistor Spacing to Diff and Tap](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-excercise-to-implement-poly-resistor-spacing-to-diff-and-tap)
+        + [Lab Challenge Excercise To Describe DRC Error as Geometrical Construct](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-challenge-excercise-to-describe-drc-error-as-geometrical-construct)
+        + [Lab Challenge to Find Missing or Incorrect Rules and Fix Them](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-challenge-to-find-missing-or-incorrect-rules-and-fix-them)
