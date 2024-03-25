@@ -1,4 +1,3 @@
-![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/8a998f76-cef1-479f-84b6-19bfed02b4a4)# SKY130 DAY 3: Design Library Cell Using Magic Layout and NGSPICE characterisation
 ## Labs for CMOS Inverter NGSPICE Simulations
 ### IO Placer Revision
 
