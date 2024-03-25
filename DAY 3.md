@@ -1,3 +1,4 @@
+# SKY130 DAY 3: Design Library Cell Using Magic Layout and NGSPICE characterisation
 ## Labs for CMOS Inverter NGSPICE Simulations
 ### IO Placer Revision
 
