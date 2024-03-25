@@ -1,4 +1,4 @@
-![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/76f2a6b7-7931-47b1-8834-855c3eb8def6)![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/3e7e332b-fcd5-4143-ad5c-c843b1704094)# SKY130 Day 2: Good vs Bad Floorplan and Introduction to Library Cells
+# SKY130 Day 2: Good vs Bad Floorplan and Introduction to Library Cells
 ## Chip Floor Planning Considerations
 ### Utilisation Factor and Aspect Ratio
 
