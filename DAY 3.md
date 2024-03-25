@@ -25,4 +25,4 @@
 ### Lab Excercise to Fix **poly.9** error in SKY130 Tech-File
 ### Lab Excercise to Implement Poly-Resistor Spacing to Diff and Tap
 ### Lab Challenge Excercise To Describe DRC Error as Geometrical Construct
-## Lab Challenge to Find Missing or Incorrect Rules and Fix Them
+### Lab Challenge to Find Missing or Incorrect Rules and Fix Them
