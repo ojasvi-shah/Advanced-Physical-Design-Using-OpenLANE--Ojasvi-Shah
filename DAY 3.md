@@ -178,8 +178,30 @@ For the SPICE extraction of the custom inverter layout, we can enter the followi
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/2344ca21-bbad-4c56-8cba-3fd709f749e8)
 
 ## SKY130 Tech File Labs
-### Lab Steps To Create Final SPICE deak using SKY130 tech
+### Lab Steps To Create Final SPICE deck using SKY130 tech
+
+The default SPICE deck file using Sky130 is seen in the previous section 👆. Now, we can modify the file to plot a transient response, which would then create a final SPICE deck file by editing as below.
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/e1536061-189f-4851-a5c5-7651c55cc75e)
+
+To load the SPICE file for simulation in NGSPICE, type the following command : _**ngspice sky130A_inv.spice**_
+
 ### Lab Steps to Characterise Inverter using SKY130 Model Files
+
+After typing this command, you will get a result as follows:-
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/eb4bf7a0-c3aa-4cd3-b619-6ee5cf335397)
+
+After this, to generate a graph, type the command _**plot y vs time a**_ to generate a plotted graph of the transient analysis through NGSPICE -:
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/e3e5f0ea-a497-4107-a3f8-efeec27c5424)
+
+Using this, we can characterise the cell through four parameters - 
+1. value of rise transition [i.e. time taken for an output waveform to transit from a value of 20% of the maximum value to 80% of the maximum value - vdd]
+2. value of fall transition [i.e. time taken for an output waveform to transit from a value of 80% to 20% of the maximum value]
+3. value of fall cell delay
+4. value
+
 ### Lab Introduction to SKY130 PDKs And Steps to Download Labs
 ### Lab Introduction to Magic Tool Options and DRC Rules
 ### Lab Introduction to Magic and Steps to Load SKY130 Tech Rules
