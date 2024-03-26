@@ -14,6 +14,7 @@ After this, we may re-run floorplan, and then check by seeing that the pins are 
 
 The SPICE deck contains connectivity information about netlists, inputs to be provided, TAPS for the outputs etc. The component values are taken, that are usually -: for the PMOS it is .375u/.25u (i.e. the channel length is .25 micron and and the channel width is .375 micron). Ideally, the PMOS should be 2 to 3 times wider than the NMOS. This is as the PMOS hole carrier is slower than the NMOS carrier, and since the rise and fall time must be matched, to reduce the resistance, we increase the width of the PMOS. The next steps are to identify and name the nodes:
 
+{IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/e85697ff-266b-4fc5-83a9-c3fe0143ffcf)
 
 The syntax of the SPICE deck netlist PMOS and NMOS is _[component name] [drain] [gate] [source] [substrate] [transistor type] W=[width] L=[length]_. It is to be noted that all components in a netlist are described based on its node and values.
@@ -24,6 +25,7 @@ The syntax of the SPICE deck netlist PMOS and NMOS is _[component name] [drain] 
 
 The start of SPICE simulation is _.op_ where in Vin will be swept from 0 to 2.5 with 0.05V steps. The model file is **tsmc_025um_model.mod** that has all the technological parameters for the 0.25um NMOS and PMOS.
 
+{IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/bdec7a54-4667-4c1f-acbc-193062f2bcda).
 
 For SPICE simulation, there are various steps-:
@@ -33,10 +35,12 @@ For SPICE simulation, there are various steps-:
 3) Execute it by the command _run_ and then use _setplot_ which allows one to view any plots possible from the simulations specified in the spice deck and will give you a choice for which simulation to be run
 4) Then, type _display_ which will give you a choice of nodes to be plotted which when _plot out vs in_ is typed will be plotted on a graph.
 
+{IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/a4931bc2-cb5d-4e9e-8c14-54bc916c0b00)
 
 ### Switching Threshhold Vm
 
+{IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/da38d8fa-1309-485b-b68d-e0e35c819a0a)
 
 POINTS TO BE NOTED:
@@ -46,18 +50,22 @@ POINTS TO BE NOTED:
 
 The Switching Threshhold is the point where the the input voltage is equal to the output voltage and both PMOS & NMOS are in saturation region. When these are turned on, there is a high chances of leakage and  that the current flows directly from VDD to GND. Due to this, short circuit can be seen.
 
+{IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/07f581e6-f0c1-49b3-b190-18c4d5a05157)
 
 ### Static and Dynamic Simulation of CMOS Inverter
 
 To find Vm, we use DC TRANSFER ANALYSIS. Simulation is essentially a sweep from 0V to 2.5V by taking 0.05V steps.
 
+{IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/7709cad2-6227-4878-baad-d3165745ef67)
 
 To find propogation delay, we use transient analysis when a pulse is applied to the CMOS.
 
+{IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/1797489d-2861-4149-879b-496c616550db)
 
+{IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/9dda14bc-11c3-4469-9d27-4ad812765df2)
 
 ### Lab Steps to GitClone VSDSTD Cell Design
@@ -68,6 +76,7 @@ We have been provided with a github repository wherein inverter files lie. It is
 3. Subsequently, copy the tech file to the _vsdstdcelldesign_ directory (created through above step) by this command _cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign/_
 4. Then, open the custom inverter layout in MAGIC through this command: _magic -T sky130A.tech sky130_inv.mag &_cp__
 
+{IMAGE CREDITS: AUTHOR ; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/307eb43f-4fe3-4d28-bca0-4e495d171489)
 
 ## Inception of Layout and CMOS Fabrication Process
@@ -101,6 +110,7 @@ The 16 MASK CMOS Fabrication process is as follows:
 
 Gate Terminal is where Threshhold Voltage is controled - as seen below:
 
+{IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/2803bfef-5a63-4e51-a91f-ca5f3bd2f3c5)
 
 4. Formation of Gate
@@ -131,10 +141,22 @@ Gate Terminal is where Threshhold Voltage is controled - as seen below:
 
 7. Steps to Form Connects and Interconnects [LOCAL] - these are very important as they help in controlling the electrical charecteristics. These are also the only things accessible to the end user.
      + The thin screen oxide is removed for opening up the source, drain and gate for contact building. We use Titanium as it has less resistance.
-     + TiSi2 is used for local interconnects
-     + Mask 11 is formed and TiN is etched off by RCA cleaning to create the first level contact
+     + Titanium Diselenide [Ti2Si2] is used for local interconnects
+     + Mask 11 is formed and Titanium Nitride [Ti N] is etched off by RCA cleaning to create the first level contact
 
 ### Higher Level Metal Formation
+
+8. Higher Level Metal Formation - These steps are very similar to the previous steps and are quite easy to understand.
+     + The previous steps in the MASK process have created an uneven surface layer. A layer of Silicon Dioxide [SiO2] doped with phosphorous or boron -[boron reduces the temperature] [known as phosphosilicate glass and borophosphosilicate glass] is deposited on the wafer surface.
+     + Then, the surface is polished using the CMP [Chemical Mechanical Polishing] technique to planarize the surface.
+     + Contact holes are created through photolithography.
+     + Various masks are used for the various processes after this:-
+          - Mask 12 is created for the first contact holes
+          - Mask 13 is used for the first Aluminum contact layer, which the contact holes are connected to.
+          - Mask 14 creates the second contact holes
+          - Mask 15 is similarly, for the second Aluminum contact layer
+          - Finally, we use Mask 16 for making contact to topmost layer
+
 ### Lab Introduction to SKY130 Basic Layers Layout and LEF using Inverter
 ### Lab Steps to Create STD Cell Layout and Extract SPICE Netlist
 
