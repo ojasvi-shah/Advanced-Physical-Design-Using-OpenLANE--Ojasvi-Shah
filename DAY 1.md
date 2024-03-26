@@ -231,7 +231,7 @@ To open Openlane, we can use the _docker_ command using **interactive**. After i
 
 OpenLane has various designs and we are most interested in **picorv32a** Inside the _designs_ folder there is document named _config.tcl_ which overrides the default settings. These configurations are design specific.(e.g. clock period, clock port, verilog files).
 
-{IMAGE CREDITS: AUTHOR ; screenshot taken from device}  
+{IMAGE CREDITS: DEEPTHY SANTHAKUMAR}  
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/455bdb9f-366d-431b-b3c9-e47b39ea9091)
 
 To setup the design of OpenLANE, we first need to prepare the design ensures that the final product functions correctly and reliably through _prep -design picorv32a_, which gives the following result.
