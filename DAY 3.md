@@ -158,7 +158,24 @@ Gate Terminal is where Threshhold Voltage is controled - as seen below:
           - Finally, we use Mask 16 for making contact to topmost layer
 
 ### Lab Introduction to SKY130 Basic Layers Layout and LEF using Inverter
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/c4eb61e9-abe9-40fb-8191-0a032c8cd91c)
+
+> In sky130A, the first layer is the LDD or local-i and then the m1, m2 layers and so on.
+> The power and ground lines are located in m1.
+> When polysilicon crosses ndiffusion then NMOS and if polysilicon crosses pdiffusion then PMOS is created.
+> The output of the layout is the _LEF_ file, which is used by the router in APR to get the location of standard cell pins for proper routing. So it is essentially an abstract form of the layout of a standard cell.
+
 ### Lab Steps to Create STD Cell Layout and Extract SPICE Netlist
+
+For the SPICE extraction of the custom inverter layout, we can enter the following commands in the TCKON -:
+1. _**extract all**_
+2. _**ext2spice cthresh 0 rthresh 0**_ --> This extracts the parasitic information
+3. _**ext2spice**_
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/225ebb8d-8128-425c-99f9-5531a119e69d)
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/f8b6fbce-cd2a-40d4-bb31-856cb7ad54d1)
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/2344ca21-bbad-4c56-8cba-3fd709f749e8)
 
 ## SKY130 Tech File Labs
 ### Lab Steps To Create Final SPICE deak using SKY130 tech
