@@ -184,7 +184,31 @@ Hence, we see that a more realistic equation for setup time is = Θ < T - S - SU
 
 ### Lab Steps to Configure OpenSTA for Post-Synth Timings Analysis
 
+STA can either be -:
++ single corner - which only uses the LIB_TYPICAL library which is the one used in pre-layout(pos-synthesis) STA
++ multi corner - multicorner which uses LIB_SLOWEST(setup analysis, high temp low voltage),LIB_FASTEST(hold analysis, low temp high voltage), and LIB_TYPICAL libraries
 
+1. This is the configuration file on which we'll be doing pre layout analysis -:
+
+   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/d38bb100-ed9c-43ed-9ac1-c6d3c4869f90)
+
+2. This is the SDC file
+
+   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/ac226b7b-d347-4feb-8b53-2895d0ff049e)
+
+3. The various commands to be run and their functions are -:
+
+   + _create_clock_ -it creates clock for the port with specified time period.
+     
+   + *set_input_delay* and *set_output_delay* - defines the arrival/exit time of an input/output signal relative to the input clock. [This is the delay of the signal coming from an external block and internal delay of the signal to be propagated to external ports] This adds a delay of Xns relative to clk to all signals going to input ports, and delay of Yns relative to CLK to all signals going to output ports.
+     
+   + *set_max_fanout* - specifies maximum fanout count for all output ports in the design.
+     
+   + *set_driving_cell* - models an external driver at the input port of the current design.
+     
+   + *set_load* sets a capacitive load to all output ports.
+
+4. Execute *sta pre_sta.conf* and check timing.
 
 ### Lab Steps to Optimize Synthesis to Reduce Setup Violations
 ### Lab Steps to do Basic Timing ECO
