@@ -96,6 +96,62 @@ We notice at level 2 that both buffers have identical delays due to equal transi
 > Latency is the delay experienced by the clock signal
 
 ### Lab Steps To Configure Synthesis Settings to Fix Slack and Include VSDINV
+
+We can see through previous pictures that currently, 
+- tns = -711.59
+- wns = -23.89
+- chip area for the module picorv32a = 147712.9184
+
+Hence, our next step is to try to make the synthesis more **timing driven**. This can be done as follows-:
+
+1. Firstly, check synthesis strategy and other timing related variables and then modify accordingly
+    - SYNTH_STRATEGY of delay 0 will mean that the tool will focus more on optimizing the delay
+    -  index can changed to be 0, 1, 2, or 3 where 3 is the most optimized for timing at the cost of area.
+    -  SYNTH_BUFFERING of 1 will ensure that the buffer will be used on high fanout cells to reduce wire delay.
+    -  SYNTH_SIZING of 1 will enable cell sizing where cell will be upsized or downsized as needed to meet timing.
+    -  SYNTH_DRIVING_CELL is the cell used to drive the input ports and is vital for cells with a lot of fan-outs since it needs higher drive strength.
+  
+      ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/1acfa7d0-6ec9-4570-bf98-bbb3826f3776)
+
+2. After this, run synthesis again. It is will be seen that area is increased but there is no negative slack
+     + tns = 0
+     + wns = 0
+     + Chip area for module picorv32a = 209181.872
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/7d194ab7-bf43-438e-91a0-725386bd61dc)
+
+3. Subsequently, we may run floorplan and placement
+
+> NOTE : If any error comes related to macro placement, temporary solution is to comment **basic_macro_placement** inside the file **OpenLane/scripts/tcl_commands/floorplan.tcl** (this is okay since we are not adding any macro to the design).
+>
+> We can also execute the following commands:-
+> 
+> init_floorplan
+> 
+> place_io
+>
+> global_placement_or
+>
+> detailed_placement
+>
+> tap_decap_or
+>
+> detailed_placement
+
+After successful run, **runs/[date]/results/placement/picorv32a.placement.def** will be created:-
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/fad383de-088c-49c9-8571-5ba57734cab3)
+
+4. After this, search for instance of cell **sky130_vsdinv** inside the DEF file after the placement stage through this command **cat picorv32a.placement.def | grep sky130_vsdinv**
+
+5. Then, select a single **sky130_vsdinv** cell instance from the list dumped by grep (e.g. 41096). On tkcon, command **select cell 41096** may be run. Press ctrl+z to zoom into that cell. As shown below, our customized inverter cell sky130_myinverter is sucessfully placed. Use the **expand** command on tkcon to show the footprint of the cell and notice how the power and ground of sky130_vsdinv overlaps the power and ground pins of its adjacent cells -:
+
+   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/eec0ea29-808b-4356-bce0-d8543bc17310)
+   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/4440d05f-d511-4fd9-bf4c-f15b111b069e)
+   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/700908e3-8609-4d52-94f6-6d7eb1f386b1)
+
+
+
 ## Timing Analysis With Ideal Clocks Using Open STA
 ### Setup Timing Analysis And Introduction to Flip-Flop Setup Time
 ### Introduction to Clock Jitter and Uncertainty
