@@ -247,4 +247,26 @@ Then, in the empty magic prompt, click **"FILE"**, which is at the top and selec
 > NOTE: the text in purple is the periphery rules broken
 
 ### Lab Excercise to Fix **poly.9** error in SKY130 Tech-File
+
+Type **_load poly_** in the tkcon window -:
+   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/c37c39df-9077-49c6-952a-78b0732dd070)
+   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/07887a52-8ac9-4233-925e-1ba3f18b9e11)
+
+Now, to focus on the poly 9 rule as explained at [this link](https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html#rules-periphery--page-root) which states that poly resistor spacing to poly or spacing (no overlap) to diff/tap should be atleast 0.48um! Now, we can look at the below screenshot to find that this is not true, here and hence must be fixed by changing the tech file to include this DRC -:
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/879deed6-df02-44ac-995a-2208e0a3feec)
+
+Firstly, open the **_sky130A.tech_** file from the directory _drc_tests_. The rules included for <u>poly.9</u> are only for the spacing between the n-poly and p-poly resistor with diffusion. So, we will now add new rules for the spacing between the poly resistor with poly non-resistor. Highlighted in green below are the two newly added rules. First one is the rule for the spacing between the p-poly resistor with poly non-resistor and the next one is the rule for spacing between n-poly resistor with poly non-resistor. The allpolynonres is a macro under alias section of techfile -:
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/8f4ec18a-3d70-46ad-9be4-3c909f90ac39)
+
+Then, enter commands as shown:
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/9e7e283d-c20c-43c7-a7f7-b6801b63485b)
+
 ### Lab Excercise to Implement Poly-Resistor Spacing to Diff and Tap
+
+In the below pic, we see an error which we can fix by modifying the tech file by not including only the spacing between npolyres with N-substrate diffusion in poly.9 but also between npolyres and all types of diffusion.
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/b0a3505f-bb52-4cfc-9928-3f97cc58fe2c)
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/200150c7-528b-446e-8d32-a9760c245ddf)
