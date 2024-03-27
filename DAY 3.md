@@ -197,10 +197,31 @@ After this, to generate a graph, type the command _**plot y vs time a**_ to gene
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/e3e5f0ea-a497-4107-a3f8-efeec27c5424)
 
 Using this, we can characterise the cell through four parameters - 
-1. value of rise transition [i.e. time taken for an output waveform to transit from a value of 20% of the maximum value to 80% of the maximum value - vdd]
-2. value of fall transition [i.e. time taken for an output waveform to transit from a value of 80% to 20% of the maximum value]
-3. value of fall cell delay
-4. value
+1. value of rise transition, which is the time taken for an output waveform to transit from a value of 20% of the maximum value to 80% of the maximum value = vdd = 3.3V. 20% of 3.3V is about .66V, and 80% is about 2.64V, and hence we will click on those points, whose x and y values will appear in the terminal as seen -:
+
+   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/a8ef6eaa-d887-4eb8-8d7a-749eab8b8699)
+
+   Then, rise transition = 2.2457ns - 2.1819ns = 0.638
+   
+2. value of fall transition, which is the time taken for an output waveform to transit from a value of 80% to 20% of the maximum value. Similarly, 4.06818ns - 4.04073ns = 0.02745ns
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/9a48997f-5cc4-4295-9000-b161eea44a86)
+
+
+3. value of fall cell delay, which is the time difference {delay} between 50% of the input and 50% of the output which essentially means the time taken for output to fall to 50% and time taken for input to rise to 50%. Calculating fall delay => 4.05402ns - 4.0501ns = 0.00392ns
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/ff01b40d-6c29-4298-a644-dad980ebf0f4)
+
+
+4. value of rise cell delay, which is the time difference {delay} between 50% of the input and 50% of the output which essentially means the time taken for output to rise to 50% and time taken for input to fall to 50%. Calculating rise delay => 2.18381ns - 2.15003ns = 0.03378ns
+
+   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/b91f4493-9d17-42dc-aa97-4bce99645185)
+
+
+Through this, we have charecterised a cell at 27 degrees Celsius successfully -:
+[cell was plotted with analysis occuring at 27 degrees Celsius]
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/29ceff2d-b483-4a24-b0e1-1ce0e4de0588)
+
 
 ### Lab Introduction to SKY130 PDKs And Steps to Download Labs
 ### Lab Introduction to Magic Tool Options and DRC Rules
