@@ -93,3 +93,4 @@ Contents -:
         + Lab Steps to Analyse Timing With Real Clocks Using OpenSTA
         + Lab Steps to Excecute OpenSTA With Right Timing Libraries and CTS Assignment
         + Lab Steps to Observe Impact of Bigger CTS Buffers On Setup And Hold Timing
+* [Bibliography and Acknoledgements](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/Bibliography%20and%20Acknowledgements.md)
