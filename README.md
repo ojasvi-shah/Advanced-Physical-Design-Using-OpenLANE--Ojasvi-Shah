@@ -70,3 +70,26 @@ Contents -:
         + [Lab Introduction to Magic and Steps to Load SKY130 Tech Rules](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-introduction-to-magic-and-steps-to-load-sky130-tech-rules)
         + [Lab Excercise to Fix **poly.9** error in SKY130 Tech-File](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-excercise-to-fix-poly9-error-in-sky130-tech-file)
         + [Lab Excercise to Implement Poly-Resistor Spacing to Diff and Tap](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%203.md#lab-excercise-to-implement-poly-resistor-spacing-to-diff-and-tap)
+* SKY130 DAY 4 : Pre-Layout Timing Analysis and Importance of Good Clock Tree
+     - Timing Modelling Using Delay Tables
+        + Lab Steps To Convert Grid Information Into Track Information
+        + Lab Steps to Convert Magic Layout to STD Cell LEF
+        + Introduction of Timing **libs** and Steps To Include New Cell in Synthesis
+        + Delay Table Usage
+        + Lab Steps To Configure Synthesis Settings to Fix Slack and Include VSDINV
+     - Timing Analysis With Ideal Clocks Using Open STA
+        + Setup Timing Analysis And Introduction to Flip-Flop Setup Time
+        + Introduction to Clock Jitter and Uncertainty
+        + Lab Steps to Configure OpenSTA for Post-Synth Timings Analysis
+        + Lab Steps to Optimize Synthesis to Reduce Setup Violations
+        + Lab Steps to do Basic Timing ECO
+     - Clock Tree Synthesis TritonCTS and Signal Integrity
+        + Clock Tree Routing and Buffering Using H-Tree Algorithm
+        + Crosswalk and Clock Net Shielding
+        + Lab Steps to run CTS using TritonCTS
+        + Lab Steps to Verify CTS Runs
+     - Timing Analysis  With Real Clocks Using Open STA
+        + Setup Timing Analysis Using Real Clocks
+        + Lab Steps to Analyse Timing With Real Clocks Using OpenSTA
+        + Lab Steps to Excecute OpenSTA With Right Timing Libraries and CTS Assignment
+        + Lab Steps to Observe Impact of Bigger CTS Buffers On Setup And Hold Timing
