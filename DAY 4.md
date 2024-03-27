@@ -1,4 +1,4 @@
-![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/c3d2ca79-ff9c-41a1-aaf8-d6cba37008f6)# SKY130 DAY 4 : Pre-Layout Timing Analysis and Importance of Good Clock Tree
+# SKY130 DAY 4 : Pre-Layout Timing Analysis and Importance of Good Clock Tree
 ## Timing Modelling Using Delay Tables
 ### Lab Steps To Convert Grid Information Into Track Information
 
