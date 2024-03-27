@@ -222,11 +222,29 @@ Through this, we have charecterised a cell at 27 degrees Celsius successfully -:
 [cell was plotted with analysis occuring at 27 degrees Celsius]
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/29ceff2d-b483-4a24-b0e1-1ce0e4de0588)
 
+### Lab Introduction to Magic Tool Options and DRC Rules
+
+A documentation shared by the instructor on how MAGIC performs DRC [Design Rule Check] and it's syntax for the rules is at [this link](http://opencircuitdesign.com/magic/) 
 
 ### Lab Introduction to SKY130 PDKs And Steps to Download Labs
-### Lab Introduction to Magic Tool Options and DRC Rules
+Now, for the lab we need to download the lab files, which can be done through this command -: _**wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz**_
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/c0814fc7-b71f-4410-a4e6-00983bddbe9b)
+
+Then, to extract these files, we can type _**tar xfz drc_tests.tgz**_
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/0cd7d114-5975-4882-aa0a-7410ef8cbed8)
+
+Then we will go into the directory by **_cd drc_tests_** and then list the contents through _ls -al_. Then to open the magic tool, type _**magic -d XR**_
+
 ### Lab Introduction to Magic and Steps to Load SKY130 Tech Rules
+
+Then, in the empty magic prompt, click **"FILE"**, which is at the top and select _open_ and then _met3.mag_ under that, to obtain this screen view wherein we can see a number of independent layouts contain certain DRC errors
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/812972b8-a90a-4924-b762-200269bf94b3)
+![modified](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/d0d3fdb3-17f0-405e-b3d4-c022dce1895b)
+
+> NOTE: the text in purple is the periphery rules broken
+
 ### Lab Excercise to Fix **poly.9** error in SKY130 Tech-File
 ### Lab Excercise to Implement Poly-Resistor Spacing to Diff and Tap
-### Lab Challenge Excercise To Describe DRC Error as Geometrical Construct
-### Lab Challenge to Find Missing or Incorrect Rules and Fix Them
