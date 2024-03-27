@@ -150,12 +150,42 @@ After successful run, **runs/[date]/results/placement/picorv32a.placement.def** 
    ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/4440d05f-d511-4fd9-bf4c-f15b111b069e)
    ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/700908e3-8609-4d52-94f6-6d7eb1f386b1)
 
-
-
 ## Timing Analysis With Ideal Clocks Using Open STA
 ### Setup Timing Analysis And Introduction to Flip-Flop Setup Time
+
+Consider an ideal clock [i.e. a clock tree is not built yet] where perform timing analysis to understand the parameters [later the same can be done using real clocks]. Specifications are as mentioned in the picture [Clock frequncy (F) is 1GHz and clock period (T) is 1ns]. -:
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/39437ad9-3953-4955-ac5f-e15c60e3adf0)
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/f12cdcd3-e080-4d25-977c-aed998a2e060)
+
+The setup timing analysis equation is = Θ < T - S
+
+> Θ = Combinational delay which includes clk to Q delay of launch flop and internal propagation delay of all gates between launch and capture flop
+> 
+> T = Time period, also called the required time
+> 
+> S = Setup time. As demonstrated below, signal must settle on the middle (input of Mux 2) before clock tansists to 1 so the delay due to Mux 1 must be considered, this delay is the setup time.
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/0f2910d0-0c34-40f1-aaf5-40c311efe669)
+
 ### Introduction to Clock Jitter and Uncertainty
+
+CLK signals are sent to the device by the PLL (Phase Locked Loop). This clock source is expected to send clock signal at 0, T, 2T etc. However, even these clock sources might or might not be able to provide a clock **exactly** at Tns because of its own in-built variation known as jitter. Jitter can be thought of as short-term fluctuations in the timing of signal transitions, which can result in deviations from the expected clock or data timing.
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/a298949c-3101-44c3-b15a-d60efbc9eca8)
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/ca549e3e-4895-4a62-b3e6-4924e2394d2d)
+
+Hence, we see that a more realistic equation for setup time is = Θ < T - S - SU
+
+> SU = Setup uncertainty due to jitter which is temporary variation of clock period, which is due to non-idealities of PLL.
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/48e91fce-8564-4295-9b94-4b50afa9288f)
+
 ### Lab Steps to Configure OpenSTA for Post-Synth Timings Analysis
+
+
+
 ### Lab Steps to Optimize Synthesis to Reduce Setup Violations
 ### Lab Steps to do Basic Timing ECO
 ## Clock Tree Synthesis TritonCTS and Signal Integrity
