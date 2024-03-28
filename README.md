@@ -93,18 +93,18 @@ Contents -:
         + [Lab Steps to Analyse Timing With Real Clocks Using OpenSTA](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#setup-timing-analysis-using-real-clocks)
         + [Lab Steps to Excecute OpenSTA With Right Timing Libraries and CTS Assignment](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#lab-steps-to-excecute-opensta-with-right-timing-libraries-and-cts-assignment)
         + [Lab Steps to Observe Impact of Bigger CTS Buffers On Setup And Hold Timing](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#lab-steps-to-observe-impact-of-bigger-cts-buffers-on-setup-and-hold-timing)
-* SKY130 DAY 5: Final Steps For RTL2GDS Using TritonRoute and OpenSTA
-     - Routing and Design Check [DRC]
-        + Introduction to Maze Routing and Lee's Algorithm
-        + Lee's Algorithm Conclusion
-        + Design Rule Check
-     - Power Distribution Network and Routing
-        + Lab Steps To Build Power Distribution Network
-        + Lab Steps From Power Straps To STD Cell Power
-        + Basics of Global and Detail Routing and Configure TritonRoute
-     - TritonRoute Features
-        + TritonRoute Feature 1 - Honors Pre-processed Route Guides
-        + TritonRoute Feature 2 & 3 - Inter-Guide Connectivity and Intra & Inter Layer Routing
-        + TritonRoute Method To Handle Connectivity
-        + Routing Topology Algorithm and Final Files List Post Route
+* [SKY130 DAY 5: Final Steps For RTL2GDS Using TritonRoute and OpenSTA](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#sky130-day-5-final-steps-for-rtl2gds-using-tritonroute-and-opensta)
+     - [Routing and Design Check [DRC]](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#routing-and-design-check-drc)
+        + [Introduction to Maze Routing and Lee's Algorithm](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#introduction-to-maze-routing-and-lees-algorithm)
+        + [Lee's Algorithm Conclusion](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#lees-algorithm-conclusion)
+        + [Design Rule Check](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#design-rule-check)
+     - [Power Distribution Network and Routing](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#power-distribution-network-and-routing)
+        + [Lab Steps To Build Power Distribution Network](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#lab-steps-to-build-power-distribution-network)
+        + [Lab Steps From Power Straps To STD Cell Power](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#lab-steps-from-power-straps-to-std-cell-power)
+        + [Basics of Global and Detail Routing and Configure TritonRoute](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#basics-of-global-and-detail-routing-and-configure-tritonroute)
+     - [TritonRoute Features](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#tritonroute-features)
+        + [TritonRoute Feature 1 - Honors Pre-processed Route Guides](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#tritonroute-feature-1---honors-pre-processed-route-guides)
+        + [TritonRoute Feature 2 & 3 - Inter-Guide Connectivity and Intra & Inter Layer Routing](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#tritonroute-feature-2--3---inter-guide-connectivity-and-intra--inter-layer-routing)
+        + [TritonRoute Method To Handle Connectivity](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#tritonroute-method-to-handle-connectivity)
+        + [Routing Topology Algorithm and Final Files List Post Route](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#routing-topology-algorithm-and-final-files-list-post-route)
 * [Bibliography and Acknoledgements](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/Bibliography%20and%20Acknowledgements.md)
