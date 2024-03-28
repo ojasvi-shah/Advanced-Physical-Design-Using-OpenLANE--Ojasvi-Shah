@@ -84,13 +84,13 @@ Contents -:
         + [Lab Steps to Optimize Synthesis to Reduce Setup Violations](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#lab-steps-to-optimize-synthesis-to-reduce-setup-violations)
         + [Lab Steps to do Basic Timing ECO](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#lab-steps-to-do-basic-timing-eco)
      - [Clock Tree Synthesis TritonCTS and Signal Integrity](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#clock-tree-synthesis-tritoncts-and-signal-integrity)
-        + [Clock Tree Routing and Buffering Using H-Tree Algorithm]
-        + [Crosswalk and Clock Net Shielding]
-        + [Lab Steps to run CTS using TritonCTS]
-        + [Lab Steps to Verify CTS Runs]
+        + [Clock Tree Routing and Buffering Using H-Tree Algorithm](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#clock-tree-routing-and-buffering-using-h-tree-algorithm)
+        + [Crosswalk and Clock Net Shielding](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#crosswalk-and-clock-net-shielding)
+        + [Lab Steps to run CTS using TritonCTS](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#lab-steps-to-run-cts-using-tritoncts)
+        + [Lab Steps to Verify CTS Runs](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#lab-steps-to-verify-cts-runs)
      - [Timing Analysis  With Real Clocks Using Open STA](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#timing-analysis--with-real-clocks-using-open-sta)
-        + [Setup Timing Analysis Using Real Clocks]
-        + [Lab Steps to Analyse Timing With Real Clocks Using OpenSTA]
-        + [Lab Steps to Excecute OpenSTA With Right Timing Libraries and CTS Assignment]
-        + [Lab Steps to Observe Impact of Bigger CTS Buffers On Setup And Hold Timing]
+        + [Setup Timing Analysis Using Real Clocks](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#setup-timing-analysis-using-real-clocks)
+        + [Lab Steps to Analyse Timing With Real Clocks Using OpenSTA](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#setup-timing-analysis-using-real-clocks)
+        + [Lab Steps to Excecute OpenSTA With Right Timing Libraries and CTS Assignment](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#lab-steps-to-excecute-opensta-with-right-timing-libraries-and-cts-assignment)
+        + [Lab Steps to Observe Impact of Bigger CTS Buffers On Setup And Hold Timing](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%204.md#lab-steps-to-observe-impact-of-bigger-cts-buffers-on-setup-and-hold-timing)
 * [Bibliography and Acknoledgements](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/Bibliography%20and%20Acknowledgements.md)
