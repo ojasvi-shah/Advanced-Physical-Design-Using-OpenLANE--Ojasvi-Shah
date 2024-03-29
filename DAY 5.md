@@ -44,7 +44,35 @@ Another critical issue is **signal short**, which causes functionality failure. 
 
 ## Power Distribution Network and Routing
 ### Lab Steps To Build Power Distribution Network
+
+The lab steps to build a power distribution network are -:
+
+1. Go to the openlane directory
+
+2. Enter the command _docker_ and then **./flow.tcl -interactive** . To subsequently get the openlane package, type _package require openlane 0.9_.
+   
+3. Then prep the design using -: **prep -design picorv32a -tag [folder name of run where in cts had been done]
+  
+4. Then type **echo $::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/[folder name of run where in cts had been done]/results/cts/picorv32a.cts.def**
+   
+5. Then, type this to generate the PDN -: **gen_pdn**
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/45346852-d350-4783-b997-4bd00b010117)
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/78e82b6b-b037-4a99-a746-69400ef7da2d)
+
 ### Lab Steps From Power Straps To STD Cell Power
+
+The power and ground rails have a pitch of 2.72um and hence the custom inverter cell also has a height of 2.72um. This is as otherwise power and ground rails will not be able to power the cell. We also see that looking at the LEF file runs/[date]/tmp/merged.lef, all cells are have height of 2.72um and only their width differs.
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/1927eb7a-660a-41b4-8e95-2169ff9ce5dd)
+
+It is shown below how standard cells are powered up :- power/ground pads -> power/ground ring-> power/ground straps -> power/ground rails
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/ff3e440b-1e96-4602-9f9d-4a4fdb8375c4)
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/538c64bd-f71a-4d1a-bcde-b5901ba7f521)
+
 ### Basics of Global and Detail Routing and Configure TritonRoute
 
 **TritonRoute** is the engine that is used for routing through the **run_routing** command. 
@@ -96,3 +124,37 @@ In the below algorithm, cost is found for each access point. Then, a minimum spa
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/ec94132d-4372-4355-a70a-0b68bd3491f8)
 
 ### Routing Topology Algorithm and Final Files List Post Route
+
+After running the _run_routing_ command, routing [both global and detail] is completed. Routing Strategy was set to 0, which meant that DRC violations must be brought down from a high value [25000 in this case] to 0. This takes multiple iterations [34] and nearly 20 minutes to half an hour.
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/1dc01a94-ef0e-4422-bed4-e439f05f9990)
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/b35b31de-c361-4a56-83a1-df61382580e4)
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/84ebc449-4c0a-4fa0-9361-79ab24272988)
+
+After this, a def file will be formed in the location [runs/[date]/results/routing/picorv32.def], which has to opened in MAGIC -:
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/5b519467-4617-43c8-837f-d7074d29c1f0)
+
+##### Parasitic Extraction
+
+> NOTE: OpenLANE does not have any spef extraction tool, so we use a separate tool present in work/tools/ directory.
+
+The steps for extraction are -:
+1. Go to /home/vsduser/Desktop/work/tools/SPEF_EXTRACTOR, where in there are a list of files, one of which is a python file called main.py. This file helps in generation of the SPEF provided. There are also lef & def files in the folder.
+   
+2. Now, to create the SPEF file **python3 main.py /home/vsduser/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_05-49/tmp/merged.lef  /home/vsduser/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_05-49/tmp/routing/picorv32a.def**
+
+> NOTE: spef will be saved in the same location as def file. /home/vsduser/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_05-49/tmp/routing
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/b9e3dbe7-3ff4-468f-8099-cd3762d94261)
+
+The last stage will be to extract the GDSII file ready for fabrication run_magic
+
+This uses Magic to stream the GDSII file runs/26-03_05-49/results/magic/picorv32a.gds. This GDSII file can then be read by Magic:
+
+
+The last stage is to extract the GDSII file ready for fabrication through **run_magic**. This uses MAGIC to stream the GDSII file **runs/26-03_05-49/results/magic/picorv32a.gds**. The GDSII can now be ready by MAGIC -:
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/232ff315-d75d-45c4-865c-a6e6d8c9685a)
