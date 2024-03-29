@@ -107,4 +107,4 @@ Contents -:
         + [TritonRoute Feature 2 & 3 - Inter-Guide Connectivity and Intra & Inter Layer Routing](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#tritonroute-feature-2--3---inter-guide-connectivity-and-intra--inter-layer-routing)
         + [TritonRoute Method To Handle Connectivity](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#tritonroute-method-to-handle-connectivity)
         + [Routing Topology Algorithm and Final Files List Post Route](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/DAY%205.md#routing-topology-algorithm-and-final-files-list-post-route)
-* [Bibliography and Acknoledgements](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/Bibliography%20and%20Acknowledgements.md)
+* [Bibliography and Acknowledgements](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/blob/main/Bibliography%20and%20Acknowledgements.md)
