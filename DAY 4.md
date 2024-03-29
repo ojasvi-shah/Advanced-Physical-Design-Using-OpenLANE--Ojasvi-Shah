@@ -188,13 +188,13 @@ STA can either be -:
 + single corner - which only uses the LIB_TYPICAL library which is the one used in pre-layout(pos-synthesis) STA
 + multi corner - multicorner which uses LIB_SLOWEST(setup analysis, high temp low voltage),LIB_FASTEST(hold analysis, low temp high voltage), and LIB_TYPICAL libraries
 
-1. This is the configuration file on which we'll be doing pre layout analysis -:
+1. In the location *Desktop/Work/tools/openlane_working_dir/openlane_ there is a file named *pre_sta.conf* on which we will be doing the prelayout analysis. The file contains the following contents-:
 
-   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/d38bb100-ed9c-43ed-9ac1-c6d3c4869f90)
+![drawn](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/11cfc5f7-384f-4991-90ea-b8957b2afb74)
 
-2. This is the SDC file
+2. This is the SDC file on which analysis will be done is located at *Desktop/Work/tools/openlane_working_dir/openlane/designs/picorv2a/src* and is named *my_base.src_. It contains the following contents -:
 
-   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/ac226b7b-d347-4feb-8b53-2895d0ff049e)
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/053fee45-34e9-4e2a-9b11-fa496c0fcb4e)
 
 3. The various commands to be run and their functions are -:
 
@@ -211,7 +211,14 @@ STA can either be -:
 4. Execute *sta pre_sta.conf* and check timing.
 
 ### Lab Steps to Optimize Synthesis to Reduce Setup Violations
+
+To reduce negative slack, focus on large delays. Net with big fanout might cause delay increase. Use report_net -connections <net_name> to display connections. First thing we can do is to go back to OpenLane and reduce fanouts by setting ::env(SYNTH_MAX_FANOUT) 4 then run_synthesis again.
+
+For reducing the negative slack obtained, we must focus on the large delays and try to reduce them. Increases in delays are majorly caused by nets with big fanouts, which result in high load cap which causes high delay. To display the connections of the nets, the commands **report_net -connections <net_name>** can be used. Now, looking upon this output, we realise that fanouts must be reduced. This can be done by going back to OpenLANE and reducing fanouts by typing **::env(SYNTH_MAX_FANOUT) 4**. After this, we can run_synthesis again and obtain a expected value for slack.
+
 ### Lab Steps to do Basic Timing ECO
+
+However, if we want to reduce the negative slack even more, we can upsize the cells with high fanouts so that bigger drivers will be used. Now, since we cannot change load capacitance but can change the cell size, we can increase the size of the cell for a large driver to drive large cap loads leading to lesser delay. This is often done in iterations until we reach the desired slack in a process known as Timing ECO [Engineering Change Order]
 
 ## Clock Tree Synthesis TritonCTS and Signal Integrity
 ### Clock Tree Routing and Buffering Using H-Tree Algorithm
@@ -245,7 +252,35 @@ Whenever there is a switching activity happening in the aggressor, then the coup
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/e19160f6-cd94-4572-9470-336db0ca6a7a)
 
 ### Lab Steps to run CTS using TritonCTS
+
+After completion of Timing ECO, we see that the timing currently is still above 1. To reduce it, we can go through the results and switch the cells causing a lot of slack to buffers. After this the negative slack is reduced to below 1.  
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/cae7aaf6-c89f-4b6e-a631-7fbd4cdfe5e2)
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/463cc177-c4da-428e-a2e4-fd5d751e0f73)
+
+After this, for OpenLANE to use the modified netlist, we can type **write_verilog [filename]** and then run floorplan and placement. 
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/50992976-d7b8-45a7-b6c1-aa973c7108ca)
+
+After running CTS, we can see that the clock buffers get added -:
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/a4e00396-d324-4644-a423-cff91b1c4179)
+
 ### Lab Steps to Verify CTS Runs
+
+After the previous step, OpenLANE will take the procedures from **/Desktop/work/tools/openlane_working_dir/openlane/scripts/tcl_commands** and eventually invoke OpenROAD to run the tool.
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/b5943987-1fd2-4c5d-be8f-bfc76015c4e2)
+
+For example, the command **run_cts** is found in the location _/OpenLane/scripts/tcl_commands/cts.tcl_. This tcl process will invoke OpenROAD which will call the _cts.tcl_ which contains the OpenROAD commands for TritonCTS. 
+
+> The file contains many configuration variables for CTS like-:
+>
+>  - CTS_CLK_BUFFER_LIST -> which has the list of clock buffers used in clock tree branches (sky130_fd_sc_hd__clkbuf_1 sky130_fd_sc_hd__clkbuf_2 sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbuf_8)
+>  - CTS_ROOT_BUFFER -> this is the clock buffer used for the root of the clock tree and is the biggest clock buffer to drive the clock tree of the whole chip (sky130_fd_sc_hd__clkbuf_16)
+>  - CTS_MAX_CAP -> it is a numerical value for the maximum capacitance of the output port of the root clock buffer
+
 ## Timing Analysis  With Real Clocks Using Open STA
 ### Setup Timing Analysis Using Real Clocks
 
