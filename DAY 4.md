@@ -374,3 +374,11 @@ Here, we can see that slack is met for both setup and hold analysis in the typic
 >
 > We can also use tcl lreplace command to modify $::env(CTS_CLK_BUFFER_LIST)
 
+Example:
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/545c0d5b-1d4b-45c6-bdd6-ac370e586c36)
+
+The _$::env(CURRENT_DEF)_ used by CTS is the DEF file of the previously run CTS, but the DEF file we want for CTS is the placement's DEF file. So to implement this, change the **$::env(CURRENT_DEF)** to point to placement DEF file then *run_cts*.
+
+Now, observe the resulting post-CTS STA compared to previous run since we modified the clock buffer. Only buf_2 clock buffer is used now compared to buf_1 used in previous run, and hte WNS is better now since we have used bigger clock buffers.
+
