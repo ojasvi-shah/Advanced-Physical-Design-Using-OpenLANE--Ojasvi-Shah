@@ -317,5 +317,60 @@ A hold violation occurs when the path is too fast, impacted by factors such as -
 
 
 ### Lab Steps to Analyse Timing With Real Clocks Using OpenSTA
+
+The aim is to analyse the clock tree explained previously. The steps for analysis of timings with real clocks are -:
+
+1. Enter into OpenROAD using the **openroad** command.
+
+> NOTE: In OpenROAD, timing is done slightly differently, where in a db is created from lef and def files and subsequently used
+
+2. Subsequently create the db file through this command -: *read_lef [location of merged.lef]
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/49887387-c811-4d88-a58f-f563a4bc6f54)
+
+3. Then, we must read the def file from the CTS stage
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/a9353cb7-05ab-4c3b-95d6-b955ea85add0)
+
+4. Subsequently create the db through this command -: _write_db pico_cts.db_
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/c62cdcd9-3a37-4313-8f2a-a33d555e1d73)
+
+5. Then, read the db, verilog files, library and sdc
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/3c54af03-59bb-44bb-83af-20a1918aa075)
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/c9cd442a-d589-472a-9bb7-87b951b13391)
+
+6. After this, set the propogated clock to calculate the actual delay in the clock path through the command -: *set_propogated_clock [all_clocks]*
+
+7. Subsequently check the timings -:
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/e16c37a2-7d17-4b3f-acfe-63ca52beb9a0)
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/36f029ba-5566-48fb-abac-d8f8e5d31d59)
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/4ec56d12-11d6-49a8-ad08-6fa0a5660866)
+
 ### Lab Steps to Excecute OpenSTA With Right Timing Libraries and CTS Assignment
-### Lab Steps to Observe Impact of Bigger CTS Buffers On Setup And Hold Timing
+
+TritonCTS is build to optimise only based on one corner. However, the libraries included previously that also take part in timing analysis optimise based on both min and max corners, which is not accurate. Hence, we need to exit and re-enter OpenROAD and then check timing only for typical corner.
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/6651dd14-aa7f-44e7-a711-8113fd6a27d2)
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/c8c19b95-5f95-4ca4-b22d-95f908ccd8a0)
+
+Here, we can see that slack is met for both setup and hold analysis in the typical scenario-:
+
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/47963c3a-0fa8-486c-9007-fe3bef5e1caa)
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/e9d1f454-55e3-448d-83d8-ac0b20fbac55)
+
+> NOTE: When the CTS is built, skew values are tried to be met by inserting buffers from **CTS_CLK_BUFFER_LIST**, which can be modified based on requirements.
+>
+> When TritonCTS builds the clock tree, it tries to use each buffer listed in *$::env(CTS_CLK_BUFFER_LIST) (sky130_fd_sc_hd__clkbuf_1 sky130_fd_sc_hd__clkbuf_2 sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbuf_8)* from smallest to largest until the target skew is met.
+> 
+> It stores target skew in _$::env(CTS_TARGET_SKEW)_.
+> 
+> The STA result also shows that **sky130_fd_sc_hd__clkbuf_1** is the most used buffer, and we can also change the **$::env(CTS_CLK_BUFFER_LIST)** to use other buffers and observe the effect on STA and area.
+>
+> We can also use tcl lreplace command to modify $::env(CTS_CLK_BUFFER_LIST)
+
