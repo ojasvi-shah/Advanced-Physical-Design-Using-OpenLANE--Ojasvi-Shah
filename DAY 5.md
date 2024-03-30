@@ -85,7 +85,7 @@ The lab steps to build a power distribution network are -:
 
 ### Lab Steps From Power Straps To STD Cell Power
 
-The power and ground rails have a pitch of 2.72um and hence the custom inverter cell also has a height of 2.72um. This is as otherwise power and ground rails will not be able to power the cell. We also see that looking at the LEF file runs/[date]/tmp/merged.lef, all cells are have height of 2.72um and only their width differs.
+The power and ground rails have a pitch of 2.72µm and hence the custom inverter cell also has a height of 2.72µm. This is as otherwise power and ground rails will not be able to power the cell. We also see that looking at the LEF file runs/[date]/tmp/merged.lef, all cells are have height of 2.72µm and only their width differs.
 
 {IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 
