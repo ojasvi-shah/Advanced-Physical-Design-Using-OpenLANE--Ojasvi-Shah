@@ -8,6 +8,7 @@ After this, we may re-run floorplan, and then check by seeing that the pins are 
 
 > NOTE: changing the configuration on the fly will not change the runs/config.tcl, the configuration will only be available on the current session.
 
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/64fccafc-180a-4e66-881a-80fabe083dc1)
 
 ### SPICE Deck Creation For CMOS Inverter
@@ -77,6 +78,7 @@ We have been provided with a github repository wherein inverter files lie. It is
 4. Then, open the custom inverter layout in MAGIC through this command: _magic -T sky130A.tech sky130_inv.mag &_cp__
 
 {IMAGE CREDITS: AUTHOR ; SCREENSHOT TAKEN FROM DEVICE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/307eb43f-4fe3-4d28-bca0-4e495d171489)
 
 ## Inception of Layout and CMOS Fabrication Process
@@ -159,6 +161,7 @@ Gate Terminal is where Threshhold Voltage is controled - as seen below:
 
 ### Lab Introduction to SKY130 Basic Layers Layout and LEF using Inverter
 
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/c4eb61e9-abe9-40fb-8191-0a032c8cd91c)
 
 > In sky130A, the first layer is the LDD or local-i and then the m1, m2 layers and so on.
@@ -173,8 +176,13 @@ For the SPICE extraction of the custom inverter layout, we can enter the followi
 2. _**ext2spice cthresh 0 rthresh 0**_ --> This extracts the parasitic information
 3. _**ext2spice**_
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/225ebb8d-8128-425c-99f9-5531a119e69d)
+
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/f8b6fbce-cd2a-40d4-bb31-856cb7ad54d1)
+
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/2344ca21-bbad-4c56-8cba-3fd709f749e8)
 
 ## SKY130 Tech File Labs
@@ -182,6 +190,7 @@ For the SPICE extraction of the custom inverter layout, we can enter the followi
 
 The default SPICE deck file using Sky130 is seen in the previous section 👆. Now, we can modify the file to plot a transient response, which would then create a final SPICE deck file by editing as below.
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/e1536061-189f-4851-a5c5-7651c55cc75e)
 
 To load the SPICE file for simulation in NGSPICE, type the following command : _**ngspice sky130A_inv.spice**_
@@ -190,36 +199,45 @@ To load the SPICE file for simulation in NGSPICE, type the following command : _
 
 After typing this command, you will get a result as follows:-
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/eb4bf7a0-c3aa-4cd3-b619-6ee5cf335397)
 
 After this, to generate a graph, type the command _**plot y vs time a**_ to generate a plotted graph of the transient analysis through NGSPICE -:
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/e3e5f0ea-a497-4107-a3f8-efeec27c5424)
 
 Using this, we can characterise the cell through four parameters - 
 1. value of rise transition, which is the time taken for an output waveform to transit from a value of 20% of the maximum value to 80% of the maximum value = vdd = 3.3V. 20% of 3.3V is about .66V, and 80% is about 2.64V, and hence we will click on those points, whose x and y values will appear in the terminal as seen -:
 
-   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/a8ef6eaa-d887-4eb8-8d7a-749eab8b8699)
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/a8ef6eaa-d887-4eb8-8d7a-749eab8b8699)
 
    Then, rise transition = 2.2457ns - 2.1819ns = 0.638
    
 2. value of fall transition, which is the time taken for an output waveform to transit from a value of 80% to 20% of the maximum value. Similarly, 4.06818ns - 4.04073ns = 0.02745ns
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/9a48997f-5cc4-4295-9000-b161eea44a86)
 
 
 3. value of fall cell delay, which is the time difference {delay} between 50% of the input and 50% of the output which essentially means the time taken for output to fall to 50% and time taken for input to rise to 50%. Calculating fall delay => 4.05402ns - 4.0501ns = 0.00392ns
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/ff01b40d-6c29-4298-a644-dad980ebf0f4)
 
 
 4. value of rise cell delay, which is the time difference {delay} between 50% of the input and 50% of the output which essentially means the time taken for output to rise to 50% and time taken for input to fall to 50%. Calculating rise delay => 2.18381ns - 2.15003ns = 0.03378ns
 
-   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/b91f4493-9d17-42dc-aa97-4bce99645185)
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/b91f4493-9d17-42dc-aa97-4bce99645185)
 
 
 Through this, we have charecterised a cell at 27 degrees Celsius successfully -:
 [cell was plotted with analysis occuring at 27 degrees Celsius]
+
+
+{IMAGE CREDITS: VSIDAT; SCREENSHOT TAKEN FROM LECTURE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/29ceff2d-b483-4a24-b0e1-1ce0e4de0588)
 
 ### Lab Introduction to Magic Tool Options and DRC Rules
@@ -229,10 +247,12 @@ A documentation shared by the instructor on how MAGIC performs DRC [Design Rule 
 ### Lab Introduction to SKY130 PDKs And Steps to Download Labs
 Now, for the lab we need to download the lab files, which can be done through this command -: _**wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz**_
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/c0814fc7-b71f-4410-a4e6-00983bddbe9b)
 
 Then, to extract these files, we can type _**tar xfz drc_tests.tgz**_
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/0cd7d114-5975-4882-aa0a-7410ef8cbed8)
 
 Then we will go into the directory by **_cd drc_tests_** and then list the contents through _ls -al_. Then to open the magic tool, type _**magic -d XR**_
@@ -241,7 +261,10 @@ Then we will go into the directory by **_cd drc_tests_** and then list the conte
 
 Then, in the empty magic prompt, click **"FILE"**, which is at the top and select _open_ and then _met3.mag_ under that, to obtain this screen view wherein we can see a number of independent layouts contain certain DRC errors
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/812972b8-a90a-4924-b762-200269bf94b3)
+
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![modified](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/d0d3fdb3-17f0-405e-b3d4-c022dce1895b)
 
 > NOTE: the text in purple is the periphery rules broken
@@ -249,24 +272,34 @@ Then, in the empty magic prompt, click **"FILE"**, which is at the top and selec
 ### Lab Excercise to Fix **poly.9** error in SKY130 Tech-File
 
 Type **_load poly_** in the tkcon window -:
-   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/c37c39df-9077-49c6-952a-78b0732dd070)
-   ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/07887a52-8ac9-4233-925e-1ba3f18b9e11)
+
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/c37c39df-9077-49c6-952a-78b0732dd070)
+
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
+![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/07887a52-8ac9-4233-925e-1ba3f18b9e11)
 
 Now, to focus on the poly 9 rule as explained at [this link](https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html#rules-periphery--page-root) which states that poly resistor spacing to poly or spacing (no overlap) to diff/tap should be atleast 0.48um! Now, we can look at the below screenshot to find that this is not true, here and hence must be fixed by changing the tech file to include this DRC -:
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/879deed6-df02-44ac-995a-2208e0a3feec)
 
 Firstly, open the **_sky130A.tech_** file from the directory _drc_tests_. The rules included for <u>poly.9</u> are only for the spacing between the n-poly and p-poly resistor with diffusion. So, we will now add new rules for the spacing between the poly resistor with poly non-resistor. Highlighted in green below are the two newly added rules. First one is the rule for the spacing between the p-poly resistor with poly non-resistor and the next one is the rule for spacing between n-poly resistor with poly non-resistor. The allpolynonres is a macro under alias section of techfile -:
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/8f4ec18a-3d70-46ad-9be4-3c909f90ac39)
 
 Then, enter commands as shown:
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/9e7e283d-c20c-43c7-a7f7-b6801b63485b)
 
 ### Lab Excercise to Implement Poly-Resistor Spacing to Diff and Tap
 
 In the below pic, we see an error which we can fix by modifying the tech file by not including only the spacing between npolyres with N-substrate diffusion in poly.9 but also between npolyres and all types of diffusion.
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/b0a3505f-bb52-4cfc-9928-3f97cc58fe2c)
+
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/200150c7-528b-446e-8d32-a9760c245ddf)
