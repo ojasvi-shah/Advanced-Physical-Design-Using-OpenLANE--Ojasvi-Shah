@@ -161,7 +161,7 @@ Gate Terminal is where Threshhold Voltage is controled - as seen below:
 
 ### Lab Introduction to SKY130 Basic Layers Layout and LEF using Inverter
 
-{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+{IMAGE CREDITS: DEEPTHY SANTHAKUMAR}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/c4eb61e9-abe9-40fb-8191-0a032c8cd91c)
 
 > In sky130A, the first layer is the LDD or local-i and then the m1, m2 layers and so on.
