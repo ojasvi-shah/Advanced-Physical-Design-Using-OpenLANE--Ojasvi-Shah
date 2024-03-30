@@ -4,6 +4,8 @@
 
 Routing is to find the best possible connection [route] between two elements [clocks, flip-flops etc]. There have been many routing algorithms created like Steiner Tree algorithm, Line Search algorithm etc. and one such algorithm we will go into detail is **Maze Routing** - Lee's Algorithm (Lee 1961). 
 
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/df16571e-0a37-413b-a7e6-a3646b122aee)
 
 Consider connecting points 1 and 2 in the above picture, where in 1 is the source and 2 the target. The need is to find the best possible [shortest] path to connect 1 and 2. This route will aim to have very little or none routes with zig-zags, and mostly the routes are L-shaped. From an algorithmic standpoint, the software needs to search and connect the two poi+nts. From a physical design point of view, it is a physical/wire that allows signals to travel.
@@ -14,10 +16,14 @@ Steps:
 
 1. Initialisation - In this step, a routing grid/matrix is created in the area to be routed. It categorises each cell into one of various states - (i) obstacle ; (ii) empty ; (iii) visited ; (iv) source ; (v) target.
 
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/9893e362-d22c-4a50-bd05-8429647033f8)
 
 2. Wave Expansion - The algorithm performs a wave expansion from the source [marked as 'S'] cell, spreading outwards in all directions. At each step, the algorithm examines neighboring cells (up, down, left, and right) and assigns them a value one greater than the minimum value of their neighboring cells (excluding obstacles and starts from 1). This process continues until the target [marked as T] cell is reached or until no more cells can be visited.
    
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/4c3d992d-6bde-4e43-a901-b0bddafa0e4b)
 
 ### Lee's Algorithm Conclusion
@@ -28,18 +34,30 @@ Steps:
 
 > The route should not be diagonal and must not overlap any blockage/obstruction such as macros or HIPs.
 
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/d81589f1-dc79-4d3d-9fab-83f4a369fa19)
 
 ### Design Rule Check
 
 When we route, we do not just merely connect two points, we must also adhere to certain rules. For example, one rule mention how when constructing two wires there must be a minimum distance between them, they must have a minimum width and pitch etc. ence, DRC cleaning is done to ensure that the routes can be fabricated and printed in silicon properly.
 
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/0ca79794-eec7-446b-baba-1bef47a13257)
 
 Another critical issue is **signal short**, which causes functionality failure. This can be removed by moving the route to the next layer. This leads to more DRCs (via width, via spacing, higher metal layer must be wider than lower metal layer etc.).
 
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/b8098b78-4113-4c5c-8ab7-cc9cf474cd2b)
+
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/87f5217b-15d8-47a7-aacc-d101f92cb03c)
+
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/c62c4681-7b0a-4801-905b-f0d413b6eb19)
 
 ## Power Distribution Network and Routing
@@ -57,7 +75,11 @@ The lab steps to build a power distribution network are -:
    
 5. Then, type this to generate the PDN -: **gen_pdn**
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/45346852-d350-4783-b997-4bd00b010117)
+
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/78e82b6b-b037-4a99-a746-69400ef7da2d)
 
@@ -65,11 +87,17 @@ The lab steps to build a power distribution network are -:
 
 The power and ground rails have a pitch of 2.72um and hence the custom inverter cell also has a height of 2.72um. This is as otherwise power and ground rails will not be able to power the cell. We also see that looking at the LEF file runs/[date]/tmp/merged.lef, all cells are have height of 2.72um and only their width differs.
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/1927eb7a-660a-41b4-8e95-2169ff9ce5dd)
 
 It is shown below how standard cells are powered up :- power/ground pads -> power/ground ring-> power/ground straps -> power/ground rails
 
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/ff3e440b-1e96-4602-9f9d-4a4fdb8375c4)
+
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/538c64bd-f71a-4d1a-bcde-b5901ba7f521)
 
@@ -77,7 +105,11 @@ It is shown below how standard cells are powered up :- power/ground pads -> powe
 
 **TritonRoute** is the engine that is used for routing through the **run_routing** command. 
 
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/8178e934-0397-4e74-82c0-68990b24606f)
+
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
 
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/2521622c-dfb7-4f33-84de-cbf6ecabfac7)
 
@@ -99,21 +131,32 @@ In VLSI, routing is extremely important and is either done through open-source/c
 
 The preferred direction for M1 and M2 respectively is vertical and horizontal. Whenever, a non-preferred direction route is found by the tool, the tool divides the route into unit width in a process called splitting. The sections that fall into the preferred directions are subsequently combined. Sections parallel to the preferred direction are bridged with upper layer [in bridging]. Non-preferred routes are converted into preferred routing guides of M2.
 
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/f86b25d9-5bfc-42d9-a9a9-134a888d5c5c)
 
 
 ### TritonRoute Feature 2 & 3 - Inter-Guide Connectivity and Intra & Inter Layer Routing
 
 The second feature is interguide connectivity:-
+
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/884ff7fc-f58a-407f-99e4-f51ed7ffcf2a)
 
 As mentioned earlier, the preferred direction of M1 is vertical - resulting in vertically oriented lines. Panels are the dashed lines with a routing guide for each panel. Intra layer panel routing is when routing occurs withing even-index panels. Initially, routing takes place simultaneously in all even-index panels, which is followed by routing in odd-index panels. This routing remains confined within a particular layer and then Routing progresses from lower to upper layers, ensuring the orderly flow of routing operations.
+
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
 
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/4a811495-b77f-4892-a0a3-6811f8f06111)
 
 ### TritonRoute Method To Handle Connectivity
 
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/3374eb33-3680-4ce4-a86a-bd278db2f5e6)
+
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
 
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/7b41590c-4d09-49a8-9885-d5284c174357)
 
@@ -121,19 +164,29 @@ The aim of MILP (Mixed Integer Linear Programming) is to find the optimal soluti
 
 In the below algorithm, cost is found for each access point. Then, a minimum spanning tree between access points and cost is made. So, the algorithm says that the minimal and most optimal point is needed between two APCs.
 
+{IMAGE CREDITS: VSDIAT; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/ec94132d-4372-4355-a70a-0b68bd3491f8)
 
 ### Routing Topology Algorithm and Final Files List Post Route
 
 After running the _run_routing_ command, routing [both global and detail] is completed. Routing Strategy was set to 0, which meant that DRC violations must be brought down from a high value [25000 in this case] to 0. This takes multiple iterations [34] and nearly 20 minutes to half an hour.
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/1dc01a94-ef0e-4422-bed4-e439f05f9990)
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/b35b31de-c361-4a56-83a1-df61382580e4)
+
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/84ebc449-4c0a-4fa0-9361-79ab24272988)
 
 After this, a def file will be formed in the location [runs/[date]/results/routing/picorv32.def], which has to opened in MAGIC -:
+
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/5b519467-4617-43c8-837f-d7074d29c1f0)
 
@@ -148,6 +201,8 @@ The steps for extraction are -:
 
 > NOTE: spef will be saved in the same location as def file. /home/vsduser/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_05-49/tmp/routing
 
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/b9e3dbe7-3ff4-468f-8099-cd3762d94261)
 
 The last stage will be to extract the GDSII file ready for fabrication run_magic
@@ -156,5 +211,7 @@ This uses Magic to stream the GDSII file runs/26-03_05-49/results/magic/picorv32
 
 
 The last stage is to extract the GDSII file ready for fabrication through **run_magic**. This uses MAGIC to stream the GDSII file **runs/26-03_05-49/results/magic/picorv32a.gds**. The GDSII can now be ready by MAGIC -:
+
+{IMAGE CREDITS: AUTHOR; SCREENSHOT TAKEN FROM DEVICE}
 
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/232ff315-d75d-45c4-865c-a6e6d8c9685a)
