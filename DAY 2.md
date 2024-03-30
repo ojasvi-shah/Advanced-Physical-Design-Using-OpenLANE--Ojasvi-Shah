@@ -5,6 +5,7 @@
 The first step in physical design is to **define the width and height of the core and die** : Beginning with a very simple netlist, that can extrapolated later we will first draw a basic diagram in the form of symbols that we will later convert into physical designs. We will take each cell (gates, specific cell like flip flop) and give it a standard (although rough for now) dimensions. As an example here, each unit will be 1 unit x 1 unit - i.e. 1 sq. unit in size, and since there are 4 gates/flip-flops here, the total size of the silicon wafer will 4 sq. units.
 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/bd876662-ea2d-4ca0-9393-39e2e34bdec2)
 
 
@@ -14,6 +15,7 @@ All logical cells will be placed inside the core - which is part of the die. If 
 
 Example: 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/056fe880-4a00-4941-aab1-8e22c09e52c2)
 
 Utilisation factor = 50 %
@@ -26,12 +28,19 @@ Aspect Ratio = 2 : 4 = 1 : 2 = .5
 Pre-Placed cells are complex logic blocks that can be reused. They are already implemented and cannot be touched by Auto Place and Route tools - and hence are required to be very well designed. Placement of such cells are user-based. A combinational logic - such as netlist shown does a particular function and is composed of various gates. We can divide this logic into blocks - while preserving the connectivity of the logic. By extending IO pins and making connections we can convert the logic into two parts - that are blackboxed and can be used as needed. If a design only requires a black box, it can be directly handed over to the designer with out much hassle. The various preplaced blocks available include memory, clock-gating cell, comparator, MUX. The arrangement of these IPs in a chip are known as floorplanning.
 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/960cb6af-73a6-4fe9-ba92-5d658b41b8fb)
+
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/503e2a1f-ce46-4790-9260-6a2ce2b6f1ec)
+
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/ea9c5c91-9634-4a63-b022-24969a98a2d6)
+
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/2c193af2-6ff9-4533-8d6c-0c2e1833283f)
 
 
@@ -50,16 +59,19 @@ If the 16 bit bus is connected to an inverter, then it means that all the capaci
 ### Pin Placement and Logical Cell Placement Blockage
 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/92ccc847-3206-4223-b279-f73045b7d0e5)
 
 Take the above netlist as an example needing to be implemented. The information about the connections is coded through VERILOG (also known as VHDL).The input and output ports are placed left and right between the core and the die respectively. The placements of the ports is cell-specific. The clocks are continuously drive the cells and hence clock ports are bigger than data ports. Due to this, we also need the least resistance paths for the clocks. The size is inversely proportional to the resistance.
 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/2d72b528-89f5-42d4-bb11-5a183b37113b)
 
 After the pin placement, we create Logical Cell Placement Blockage to ensure that the APR tool does not place any cell on the pin locations.
 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/f87544bd-7fb1-422d-9229-d885444d6c89)
 
 
@@ -68,6 +80,7 @@ After the pin placement, we create Logical Cell Placement Blockage to ensure tha
 1. The first step is setting the configuration variables - Before running floorplan, the configuration variables or switches must be set. These are present in **openlane/configuration**
 
 {IMAGE CREDITS: AUTHOR ; SCREENSHOT TAKEN FROM DEVICE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/64423e9c-e562-45ee-a035-3744dc8db0a3)
 
 The _README.md_ contains all configuration variables, which are segregated based on stage and the **.tcl** files consists of the default OpenLANE settings.
@@ -88,7 +101,7 @@ There is a order of priority -:
 
 ### Review Floorplan Files and Steps to Review Floorplan
 
-4. After running floorplan as above, it will produce a result that will be stored in the form of a design exchange format - and will contain the area of the Die as well as positions.The die area in this file is in database units and 1 micron is equivalent to 1000 database units. Area of die = (554570/1000) microns * (565290/1000) microns = 311829.1653 sq. um.
+4. After running floorplan as above, it will produce a result that will be stored in the form of a design exchange format - and will contain the area of the Die as well as positions.The die area in this file is in database units and 1 micron is equivalent to 1000 database units. Area of die = (554570/1000) microns * (565290/1000) microns = 311829.1653 sq. µm.
 
 ### Review Floorplan Layout in Magic
 
@@ -96,17 +109,20 @@ There is a order of priority -:
 6. Subsequently, press the **S** key to select the entire die and then **V** to center the view, and then **Z** to zoom. You will observe that the IO pins are placed equidistant to one another in a random mode as based on the configuration **(FP_IO_MODE = 1)** set in _openlane/configuration/floorplan.tcl_
 
 {IMAGE CREDITS: AUTHOR ; SCREENSHOT TAKEN FROM DEVICE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/d38b08d1-e7ca-4138-b10d-1c31b0ffc6d7)
 
 7. After this, typing _what_ on the **tkcon** window will give the layer of the selection.
 
 {IMAGE CREDITS: AUTHOR ; SCREENSHOT TAKEN FROM DEVICE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/141544b1-4568-4c34-b348-c3b9138ffaa1)
 
 > Standard cells are not placed but can be viewed at the bottom left corner of the layout
 > 
 >{IMAGE CREDITS: AUTHOR ; SCREENSHOT TAKEN FROM DEVICE}
-![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/5dcd79af-393d-4d18-8986-0fe000c72db7)
+>
+> ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/5dcd79af-393d-4d18-8986-0fe000c72db7)
 
     
 ## Library Binding and Placement
@@ -117,14 +133,17 @@ There is a order of priority -:
 These blocks are sourced from a "_shelf_", known as a **library**. The library has cells with various shapes, dimensions and also contains information about the delay information. The library contains various sizes of cells with the same functionality too - since bigger cells have lesser resistance
 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/73dae3fe-cf37-41dc-8ef5-20d2d00ad475)
 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/a2e71ed5-14fc-4ff9-b1c1-47d92af242b5)
 
 + The second step is **PLACEMENT**, which is done based on connectivity. As can be seen, flip flop 1 is close to the  _Din1_ pin and flip flop 2 is close to _Dout1_ pin. Combinational cells are placed in close proximity to FF1 and FF2 as to reduce delay.
 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/1b63d280-f78d-4c4d-aa86-dcf609429bd7)
 
 
@@ -135,6 +154,7 @@ Here, we will estimate wirelength needed to connect the components together. If 
 ### Final Placement Optimization
 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/0941c315-195a-43f7-89aa-70e5e3215443)
 
 ### Congestion Aware Placement Using RePLACE
@@ -153,6 +173,7 @@ After running the placement, output is generated in this folder **_openlane/desi
 Then, we can type the command : **_magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &_** to view it in Magic: 
 
 {IMAGE CREDITS: AUTHOR ; SCREENSHOT TAKEN FROM DEVICE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/6f53eb50-d3f1-4d6c-91c2-7e35f35d423d)
 
     
@@ -182,6 +203,7 @@ OUTPUTS (Circuit Description Language, GDSII, lef, timing, noise etc)
 > Layout design is done using Euler's path and stick diagram on Magic layout tool
 >
 > {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+> 
 > ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/b94b535f-ebd1-4b8a-bd36-f649fb6a753f)
 
 ### Typical Characterisation Flow
@@ -205,17 +227,21 @@ These steps are given to the CHARECTERISATION SOFTWARE KNOWN AS **GUNA** in the 
 Here, we will talk about the semantics of the various _.libs_ files generated by GUNA. To do this, we will take this circuit as an example:
 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/0ed894da-ff96-46f5-8e9e-3b3271884568)
 
 Here, the red line is output of first inverter and blue is output of second inverter.
 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/07cc3660-34e2-4446-8d50-97599d213504)
 
 {IMAGE CREDITS: DEEPTHY SANTHAKUMAR}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/198064dc-3dd9-4bf5-aa52-d0012d7544f9)
 
 {IMAGE CREDITS: DEEPTHY SANTHANKUMAR}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/aa2d9663-c41d-45df-b74e-de6f4bd2de86)
 
 ### Propogation Delay and Transition Time
@@ -225,5 +251,6 @@ Propogation delay is calculated as = time(out_x_thr) - (time_x_thr). If the prop
 Transition time is calculated as = time(slew_high_x_thr) - time(slew_low_x_thr)
 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
+
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/68f7dbf3-b2e1-4be0-977c-6a6ef80f69b6)
 
