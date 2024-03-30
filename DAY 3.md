@@ -24,7 +24,7 @@ The syntax of the SPICE deck netlist PMOS and NMOS is _[component name] [drain] 
 
 ### SPICE Simulation Lab for CMOS Inverter
 
-The start of SPICE simulation is _.op_ where in Vin will be swept from 0 to 2.5 with 0.05V steps. The model file is **tsmc_025um_model.mod** that has all the technological parameters for the 0.25um NMOS and PMOS.
+The start of SPICE simulation is _.op_ where in Vin will be swept from 0 to 2.5 with 0.05V steps. The model file is **tsmc_025um_model.mod** that has all the technological parameters for the 0.25µm NMOS and PMOS.
 
 {IMAGE CREDITS: VSDIAT ; SCREENSHOT TAKEN FROM LECTURE}
 ![image](https://github.com/ojasvi-shah/Advanced-Physical-Design-Using-OpenLANE--Ojasvi-Shah/assets/163879237/bdec7a54-4667-4c1f-acbc-193062f2bcda).
