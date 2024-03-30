@@ -16,4 +16,4 @@ Also, thank you for bringing the group together, I made many new friends and thi
 
 1. [VSDIAT platform](vsdiat.com)
 2. The various sessions conducted by [Sudarshan Sir](https://www.linkedin.com/in/linkedin2sudarshan/?originalSubdomain=in)
-3. Another [Repository By Deepthy Santhakumar](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design) - used as reference
+3. Another [Repository By Deepthy Santhakumar](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design)
